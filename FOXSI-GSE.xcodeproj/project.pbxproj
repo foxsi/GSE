@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		866EC43D1A1D853C009FDCF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC43C1A1D853C009FDCF3 /* AppDelegate.m */; };
+		866EC43F1A1D853C009FDCF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC43E1A1D853C009FDCF3 /* main.m */; };
+		866EC4421A1D853C009FDCF3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC4411A1D853C009FDCF3 /* ViewController.m */; };
+		866EC4441A1D853C009FDCF3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 866EC4431A1D853C009FDCF3 /* Images.xcassets */; };
+		866EC4471A1D853C009FDCF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866EC4451A1D853C009FDCF3 /* Main.storyboard */; };
+		866EC4531A1D853C009FDCF3 /* FOXSI_GSETests.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC4521A1D853C009FDCF3 /* FOXSI_GSETests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		866EC44D1A1D853C009FDCF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 866EC42E1A1D853C009FDCF3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 866EC4351A1D853C009FDCF3;
+			remoteInfo = "FOXSI-GSE";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		866EC4361A1D853C009FDCF3 /* FOXSI-GSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FOXSI-GSE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		866EC43A1A1D853C009FDCF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		866EC43B1A1D853C009FDCF3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		866EC43C1A1D853C009FDCF3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		866EC43E1A1D853C009FDCF3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		866EC4401A1D853C009FDCF3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		866EC4411A1D853C009FDCF3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		866EC4431A1D853C009FDCF3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		866EC4461A1D853C009FDCF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		866EC44C1A1D853C009FDCF3 /* FOXSI-GSETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FOXSI-GSETests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		866EC4511A1D853C009FDCF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		866EC4521A1D853C009FDCF3 /* FOXSI_GSETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOXSI_GSETests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		866EC4331A1D853C009FDCF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		866EC4491A1D853C009FDCF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		866EC42D1A1D853C009FDCF3 = {
+			isa = PBXGroup;
+			children = (
+				866EC4381A1D853C009FDCF3 /* FOXSI-GSE */,
+				866EC44F1A1D853C009FDCF3 /* FOXSI-GSETests */,
+				866EC4371A1D853C009FDCF3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		866EC4371A1D853C009FDCF3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				866EC4361A1D853C009FDCF3 /* FOXSI-GSE.app */,
+				866EC44C1A1D853C009FDCF3 /* FOXSI-GSETests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		866EC4381A1D853C009FDCF3 /* FOXSI-GSE */ = {
+			isa = PBXGroup;
+			children = (
+				866EC43B1A1D853C009FDCF3 /* AppDelegate.h */,
+				866EC43C1A1D853C009FDCF3 /* AppDelegate.m */,
+				866EC4401A1D853C009FDCF3 /* ViewController.h */,
+				866EC4411A1D853C009FDCF3 /* ViewController.m */,
+				866EC4431A1D853C009FDCF3 /* Images.xcassets */,
+				866EC4451A1D853C009FDCF3 /* Main.storyboard */,
+				866EC4391A1D853C009FDCF3 /* Supporting Files */,
+			);
+			path = "FOXSI-GSE";
+			sourceTree = "<group>";
+		};
+		866EC4391A1D853C009FDCF3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				866EC43A1A1D853C009FDCF3 /* Info.plist */,
+				866EC43E1A1D853C009FDCF3 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		866EC44F1A1D853C009FDCF3 /* FOXSI-GSETests */ = {
+			isa = PBXGroup;
+			children = (
+				866EC4521A1D853C009FDCF3 /* FOXSI_GSETests.m */,
+				866EC4501A1D853C009FDCF3 /* Supporting Files */,
+			);
+			path = "FOXSI-GSETests";
+			sourceTree = "<group>";
+		};
+		866EC4501A1D853C009FDCF3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				866EC4511A1D853C009FDCF3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		866EC4351A1D853C009FDCF3 /* FOXSI-GSE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 866EC4561A1D853C009FDCF3 /* Build configuration list for PBXNativeTarget "FOXSI-GSE" */;
+			buildPhases = (
+				866EC4321A1D853C009FDCF3 /* Sources */,
+				866EC4331A1D853C009FDCF3 /* Frameworks */,
+				866EC4341A1D853C009FDCF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FOXSI-GSE";
+			productName = "FOXSI-GSE";
+			productReference = 866EC4361A1D853C009FDCF3 /* FOXSI-GSE.app */;
+			productType = "com.apple.product-type.application";
+		};
+		866EC44B1A1D853C009FDCF3 /* FOXSI-GSETests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 866EC4591A1D853C009FDCF3 /* Build configuration list for PBXNativeTarget "FOXSI-GSETests" */;
+			buildPhases = (
+				866EC4481A1D853C009FDCF3 /* Sources */,
+				866EC4491A1D853C009FDCF3 /* Frameworks */,
+				866EC44A1A1D853C009FDCF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				866EC44E1A1D853C009FDCF3 /* PBXTargetDependency */,
+			);
+			name = "FOXSI-GSETests";
+			productName = "FOXSI-GSETests";
+			productReference = 866EC44C1A1D853C009FDCF3 /* FOXSI-GSETests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		866EC42E1A1D853C009FDCF3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Steven Christe";
+				TargetAttributes = {
+					866EC4351A1D853C009FDCF3 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					866EC44B1A1D853C009FDCF3 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 866EC4351A1D853C009FDCF3;
+					};
+				};
+			};
+			buildConfigurationList = 866EC4311A1D853C009FDCF3 /* Build configuration list for PBXProject "FOXSI-GSE" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 866EC42D1A1D853C009FDCF3;
+			productRefGroup = 866EC4371A1D853C009FDCF3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				866EC4351A1D853C009FDCF3 /* FOXSI-GSE */,
+				866EC44B1A1D853C009FDCF3 /* FOXSI-GSETests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		866EC4341A1D853C009FDCF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				866EC4441A1D853C009FDCF3 /* Images.xcassets in Resources */,
+				866EC4471A1D853C009FDCF3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		866EC44A1A1D853C009FDCF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		866EC4321A1D853C009FDCF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				866EC4421A1D853C009FDCF3 /* ViewController.m in Sources */,
+				866EC43F1A1D853C009FDCF3 /* main.m in Sources */,
+				866EC43D1A1D853C009FDCF3 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		866EC4481A1D853C009FDCF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				866EC4531A1D853C009FDCF3 /* FOXSI_GSETests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		866EC44E1A1D853C009FDCF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 866EC4351A1D853C009FDCF3 /* FOXSI-GSE */;
+			targetProxy = 866EC44D1A1D853C009FDCF3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		866EC4451A1D853C009FDCF3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				866EC4461A1D853C009FDCF3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		866EC4541A1D853C009FDCF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		866EC4551A1D853C009FDCF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		866EC4571A1D853C009FDCF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "FOXSI-GSE/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		866EC4581A1D853C009FDCF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "FOXSI-GSE/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		866EC45A1A1D853C009FDCF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FOXSI-GSETests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FOXSI-GSE.app/Contents/MacOS/FOXSI-GSE";
+			};
+			name = Debug;
+		};
+		866EC45B1A1D853C009FDCF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FOXSI-GSETests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FOXSI-GSE.app/Contents/MacOS/FOXSI-GSE";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		866EC4311A1D853C009FDCF3 /* Build configuration list for PBXProject "FOXSI-GSE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				866EC4541A1D853C009FDCF3 /* Debug */,
+				866EC4551A1D853C009FDCF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		866EC4561A1D853C009FDCF3 /* Build configuration list for PBXNativeTarget "FOXSI-GSE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				866EC4571A1D853C009FDCF3 /* Debug */,
+				866EC4581A1D853C009FDCF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		866EC4591A1D853C009FDCF3 /* Build configuration list for PBXNativeTarget "FOXSI-GSETests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				866EC45A1A1D853C009FDCF3 /* Debug */,
+				866EC45B1A1D853C009FDCF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 866EC42E1A1D853C009FDCF3 /* Project object */;
+}
