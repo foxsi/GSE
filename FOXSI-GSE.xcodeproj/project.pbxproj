@@ -13,6 +13,8 @@
 		866EC4441A1D853C009FDCF3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 866EC4431A1D853C009FDCF3 /* Images.xcassets */; };
 		866EC4471A1D853C009FDCF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866EC4451A1D853C009FDCF3 /* Main.storyboard */; };
 		866EC4531A1D853C009FDCF3 /* FOXSI_GSETests.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC4521A1D853C009FDCF3 /* FOXSI_GSETests.m */; };
+		866EC45E1A1D927D009FDCF3 /* ReadDataOp.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC45D1A1D927D009FDCF3 /* ReadDataOp.m */; };
+		866EC4611A1EFBCC009FDCF3 /* DataFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC4601A1EFBCC009FDCF3 /* DataFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,10 @@
 		866EC44C1A1D853C009FDCF3 /* FOXSI-GSETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FOXSI-GSETests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		866EC4511A1D853C009FDCF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		866EC4521A1D853C009FDCF3 /* FOXSI_GSETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FOXSI_GSETests.m; sourceTree = "<group>"; };
+		866EC45C1A1D927D009FDCF3 /* ReadDataOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadDataOp.h; sourceTree = "<group>"; };
+		866EC45D1A1D927D009FDCF3 /* ReadDataOp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadDataOp.m; sourceTree = "<group>"; };
+		866EC45F1A1EFBCC009FDCF3 /* DataFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataFrame.h; sourceTree = "<group>"; };
+		866EC4601A1EFBCC009FDCF3 /* DataFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,10 @@
 				866EC4411A1D853C009FDCF3 /* ViewController.m */,
 				866EC4431A1D853C009FDCF3 /* Images.xcassets */,
 				866EC4451A1D853C009FDCF3 /* Main.storyboard */,
+				866EC45C1A1D927D009FDCF3 /* ReadDataOp.h */,
+				866EC45D1A1D927D009FDCF3 /* ReadDataOp.m */,
+				866EC45F1A1EFBCC009FDCF3 /* DataFrame.h */,
+				866EC4601A1EFBCC009FDCF3 /* DataFrame.m */,
 				866EC4391A1D853C009FDCF3 /* Supporting Files */,
 			);
 			path = "FOXSI-GSE";
@@ -215,6 +225,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				866EC4611A1EFBCC009FDCF3 /* DataFrame.m in Sources */,
+				866EC45E1A1D927D009FDCF3 /* ReadDataOp.m in Sources */,
 				866EC4421A1D853C009FDCF3 /* ViewController.m in Sources */,
 				866EC43F1A1D853C009FDCF3 /* main.m in Sources */,
 				866EC43D1A1D853C009FDCF3 /* AppDelegate.m in Sources */,
@@ -404,6 +416,7 @@
 				866EC4581A1D853C009FDCF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		866EC4591A1D853C009FDCF3 /* Build configuration list for PBXNativeTarget "FOXSI-GSETests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +425,7 @@
 				866EC45B1A1D853C009FDCF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
