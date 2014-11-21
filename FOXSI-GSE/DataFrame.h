@@ -14,5 +14,8 @@
 @property (strong) NSNumber *time;
 @property (strong) NSDictionary *voltages;
 @property (strong) NSDictionary *temperatures;
+@property (strong) NSNumber *commnand_count;
+@property (strong) NSNumber *command_value;
+@property (strong) NSNumber *high_voltage;
 
 @end

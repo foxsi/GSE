@@ -10,6 +10,9 @@
 
 @interface ViewController : NSViewController
 
+@property (weak) IBOutlet NSTextField *localTimeTextField;
+@property (weak) IBOutlet NSTextField *versionTextField;
+
 
 // Telemetry Box
 @property (weak) IBOutlet NSTextField *frameNumberTextField;
@@ -37,6 +40,8 @@
 
 
 @property (nonatomic, retain) NSOperationQueue *operationQueue;
+@property (nonatomic, retain) NSTimer *timer;
+@property (nonatomic, retain) NSDate *startTime;
 
 - (void) receiveDataReadyNotification:(NSNotification *) notification;
 - (void) StoppedReadingDataNotification:(NSNotification *) notification;

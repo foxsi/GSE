@@ -117,9 +117,11 @@
                         }
                         
                         command_count = buffer[index];
+                        thisFrame.commnand_count = [NSNumber numberWithInt:command_count];
                         //printf("cmd count: %x\n", buffer[index++]);
                         index++;
                         command_value = ((uint32_t)(buffer[index] << 16) & 0xFFFF0000) | buffer[index+1];
+                        thisFrame.command_value = [NSNumber numberWithInt:command_value];
                         index++;
                         index++;
 
@@ -155,6 +157,8 @@
                         high_voltage_status = buffer[index] & 0xF;
                         high_voltage = ((buffer[index] >> 4) & 0xFFF)/8.0;
                         index++;
+                        thisFrame.high_voltage = [NSNumber numberWithInt:high_voltage];
+                        
                         // Housekeeping 2
                         //printf("%i, housekeeping 2: %x\n", index, buffer[index]);
                         switch (frame_type) {

@@ -29,8 +29,7 @@
                                                  name:@"StoppedReadingData"
                                                object:nil];
     
-    
-    // Do any additional setup after loading the view.
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateCurrentTime) userInfo:nil repeats:YES];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -44,6 +43,7 @@
     ReadDataOp *operation = [[ReadDataOp alloc] init];
     [self.operationQueue addOperation:operation];
     [self.progressIndicator startAnimation:nil];
+    self.startTime = [NSDate date];
 }
 
 - (IBAction)CancelAction:(NSButton *)sender {
@@ -83,12 +83,21 @@
         DataFrame *thisFrame = [notification object];
         self.frameNumberTextField.integerValue = [thisFrame.number integerValue];
         self.timeTextField.integerValue = [thisFrame.time integerValue];
+        self.highVoltageTextField.integerValue = [thisFrame.high_voltage integerValue];
+        self.commandNumberTextField.integerValue = [thisFrame.commnand_count integerValue];
+        self.commandValueTextField.integerValue = [thisFrame.command_value integerValue];
     }
     
 }
 
-- (void) StoppedReadingDataNotification:(NSNotification *) notification{
+- (void) StoppedReadingDataNotification:(NSNotification *) notification
+{
     [self.progressIndicator stopAnimation:nil];
+}
+
+- (void) updateCurrentTime
+{
+    self.localTimeTextField.integerValue = [[NSDate date] timeIntervalSinceDate:self.startTime];
 }
 
 @end
