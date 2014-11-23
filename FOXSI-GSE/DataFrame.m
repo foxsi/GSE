@@ -26,6 +26,16 @@ float voltage_convert_15v(unsigned short int value);
 @synthesize commnand_count = _commnand_count;
 @synthesize command_value = _command_value;
 
+-(void) addTemperature: (unsigned short int)temp atIndex: (unsigned short int)i{
+    unsigned short int temperature;
+    if (i == 0) {
+        temperature = temperature_convert_ref(temp);
+    } else {
+        temperature = temperature_convert_ysi44031(temp);
+    }
+    [self.temperatures addObject:[NSNumber numberWithInt:temperature]];
+}
+
 float temperature_convert_ref(unsigned short int value)
 {
     return value*0.30517 - 255;

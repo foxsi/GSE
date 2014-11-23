@@ -11,6 +11,7 @@
 
 #define FRAME_SIZE_IN_SHORTINTS 1024
 #define FRAME_SIZE_IN_BYTES 2048
+#define NUMBER_OF_TEMPERATURE_SENSORS 12
 
 @implementation ReadDataOp
 
@@ -67,7 +68,7 @@
                         bool attenuator_actuating = 0;
                         
                         unsigned short int frame_type;
-                        unsigned short int temperature_monitors[12] = {0};
+                        unsigned short int temperature_monitors[NUMBER_OF_TEMPERATURE_SENSORS] = {0};
                         // order is 5V, -5V, 1.5V, -3.3V
                         unsigned short int voltage_monitors[4] = {0};
                         
@@ -217,6 +218,10 @@
                         //printf("Status 6: %x\n", buffer[index]);
                         index++;
                         
+                        for(int temp_sensor_num = 0; temp_sensor_num < NUMBER_OF_TEMPERATURE_SENSORS; temp_sensor_num++)
+                        {
+                            [thisFrame addTemperature:temperature_monitors[temp_sensor_num] atIndex:temp_sensor_num];
+                        }
                         
                         //NSLog(@"index = %i", index);
 

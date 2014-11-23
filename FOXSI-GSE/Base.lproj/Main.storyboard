@@ -1221,6 +1221,7 @@ Gw
                     </view>
                     <connections>
                         <outlet property="TemperatureTextField_aact" destination="zll-oL-YC4" id="xfc-8x-RSb"/>
+                        <outlet property="TemperatureTextField_abrd" destination="7Xo-7M-JSf" id="qX7-sc-3dQ"/>
                         <outlet property="TemperatureTextField_det0" destination="cTD-qa-WzP" id="5WI-by-jCX"/>
                         <outlet property="TemperatureTextField_det1" destination="oGp-J6-2qd" id="9tj-xJ-QBE"/>
                         <outlet property="TemperatureTextField_det3" destination="hXo-5Y-YZj" id="0UF-De-jOZ"/>

@@ -12,10 +12,12 @@
 
 @property (strong) NSNumber *number;
 @property (strong) NSNumber *time;
-@property (strong) NSDictionary *voltages;
-@property (strong) NSDictionary *temperatures;
+@property (strong) NSMutableArray *voltages;
+@property (strong) NSMutableArray *temperatures;
 @property (strong) NSNumber *commnand_count;
 @property (strong) NSNumber *command_value;
 @property (strong) NSNumber *high_voltage;
+
+-(void) addTemperature: (unsigned short int)temp atIndex: (unsigned short int)i;
 
 @end

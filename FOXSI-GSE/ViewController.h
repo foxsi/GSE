@@ -40,6 +40,7 @@
 @property (weak) IBOutlet NSTextField *TemperatureTextField_det1;
 @property (weak) IBOutlet NSTextField *TemperatureTextField_dplan;
 @property (weak) IBOutlet NSTextField *TemperatureTextField_det0;
+@property (weak) IBOutlet NSTextField *TemperatureTextField_abrd;
 
 
 // Controls Box
