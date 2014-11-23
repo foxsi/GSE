@@ -23,10 +23,10 @@
 @property (weak) IBOutlet NSTextField *commandValueTextField;
 
 // Voltages Box
-@property (weak) IBOutlet NSTextField *fiveVoltsTextField;
-@property (weak) IBOutlet NSTextField *minusFiveVoltsTextField;
-@property (weak) IBOutlet NSTextField *oneThreeVoltagsTextField;
-@property (weak) IBOutlet NSTextField *threeThreeVoltsTextField;
+@property (weak) IBOutlet NSTextField *VoltsTextField_five;
+@property (weak) IBOutlet NSTextField *VoltsTextField_mfive;
+@property (weak) IBOutlet NSTextField *VoltsTextField_onefive;
+@property (weak) IBOutlet NSTextField *VoltsTextField_threethree;
 
 // Temperatures Box
 @property (weak) IBOutlet NSTextField *TemperatureTextField_tref;

@@ -27,38 +27,56 @@ float voltage_convert_15v(unsigned short int value);
 @synthesize command_value = _command_value;
 
 -(void) addTemperature: (unsigned short int)temp atIndex: (unsigned short int)i{
-    unsigned short int temperature;
+    float temperature;
     if (i == 0) {
         temperature = temperature_convert_ref(temp);
     } else {
         temperature = temperature_convert_ysi44031(temp);
     }
-    [self.temperatures addObject:[NSNumber numberWithInt:temperature]];
+    [self.temperatures addObject:[NSNumber numberWithFloat:temperature]];
+}
+
+-(void) addVoltage: (unsigned short int)v atIndex: (unsigned short int)i{
+    float voltage;
+    // should use case below
+    if (i == 0) {
+        voltage = voltage_convert_5v(v);
+    }
+    if (i == 1) {
+        voltage = voltage_convert_m5v(v);
+    }
+    if (i == 2) {
+        voltage = voltage_convert_15v(v);
+    }
+    if (i == 3) {
+        voltage = voltage_convert_33v(v);
+    } else { voltage = 0.0; }
+    [self.voltages addObject:[NSNumber numberWithFloat:voltage]];
 }
 
 float temperature_convert_ref(unsigned short int value)
 {
-    return value*0.30517 - 255;
+    return (float)value*0.30517 - 255;
 }
 
 float voltage_convert_5v(unsigned short int value)
 {
-    return 8.75 * ( value /4095.);
+    return 8.75 * ( (float)value /4095.);
 }
 
 float voltage_convert_m5v(unsigned short int  value)
 {
-    return 2.5 - 15.0 * ( value / 4095.);
+    return 2.5 - 15.0 * ( (float)value / 4095.);
 }
 
 float voltage_convert_33v(unsigned short int  value)
 {
-    return 5. * ( value / 4095.);
+    return 5. * ( (float)value / 4095.);
 }
 
 float voltage_convert_15v(unsigned short int value)
 {
-    return 2.5 * ( value / 4095.);
+    return 2.5 * ( (float)value / 4095.);
 }
 
 float temperature_convert_ysi44031(unsigned short int  value)
@@ -92,7 +110,7 @@ float temperature_convert_ysi44031(unsigned short int  value)
      */
     
     float th, temperature;
-    th = value;
+    th = (float)value;
     th = 10000./((4095./th) -1.);
     temperature = -273. + 1./(0.00102522746225986 + 0.000239789531411299*log(th) + 1.53998393755544E-07*pow(log(th),3));
     return temperature;

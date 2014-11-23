@@ -96,9 +96,12 @@
         self.TemperatureTextField_dplan.floatValue = [[thisFrame.temperatures objectAtIndex:10] floatValue];
         self.TemperatureTextField_det0.floatValue = [[thisFrame.temperatures objectAtIndex:11] floatValue];
         
+        self.VoltsTextField_five.floatValue = [[thisFrame.voltages objectAtIndex:0] floatValue];
+        self.VoltsTextField_mfive.floatValue = [[thisFrame.voltages objectAtIndex:1] floatValue];
+        self.VoltsTextField_onefive.floatValue = [[thisFrame.voltages objectAtIndex:2] floatValue];
+        self.VoltsTextField_threethree.floatValue = [[thisFrame.voltages objectAtIndex:3] floatValue];
+
         
-
-
     }
     
 }

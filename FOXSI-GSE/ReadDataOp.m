@@ -12,6 +12,7 @@
 #define FRAME_SIZE_IN_SHORTINTS 1024
 #define FRAME_SIZE_IN_BYTES 2048
 #define NUMBER_OF_TEMPERATURE_SENSORS 12
+#define NUMBER_OF_VOLTAGE_MONITORS 4
 
 @implementation ReadDataOp
 
@@ -70,7 +71,7 @@
                         unsigned short int frame_type;
                         unsigned short int temperature_monitors[NUMBER_OF_TEMPERATURE_SENSORS] = {0};
                         // order is 5V, -5V, 1.5V, -3.3V
-                        unsigned short int voltage_monitors[4] = {0};
+                        unsigned short int voltage_monitors[NUMBER_OF_VOLTAGE_MONITORS] = {0};
                         
                         index++;
                         
@@ -221,6 +222,10 @@
                         for(int temp_sensor_num = 0; temp_sensor_num < NUMBER_OF_TEMPERATURE_SENSORS; temp_sensor_num++)
                         {
                             [thisFrame addTemperature:temperature_monitors[temp_sensor_num] atIndex:temp_sensor_num];
+                        }
+                        
+                        for (int volt_monitor_number = 0; volt_monitor_number < NUMBER_OF_VOLTAGE_MONITORS; volt_monitor_number++) {
+                            [thisFrame addVoltage:voltage_monitors[volt_monitor_number] atIndex:volt_monitor_number];
                         }
                         
                         //NSLog(@"index = %i", index);

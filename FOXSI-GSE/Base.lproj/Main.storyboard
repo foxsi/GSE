@@ -1150,14 +1150,14 @@ Gw
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fo4-I0-jmw">
                                 <rect key="frame" x="855" y="562" width="120" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Label" id="awU-dw-akA">
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IW3-Px-Qsf">
                                 <rect key="frame" x="731" y="562" width="120" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Label" id="Aog-hV-eBv">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Current Time" id="Aog-hV-eBv">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1209,7 +1209,7 @@ Gw
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <openGLView fixedFrame="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uvA-7q-J7s">
+                                        <openGLView fixedFrame="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uvA-7q-J7s" customClass="FOXSIView">
                                             <rect key="frame" x="18" y="14" width="412" height="369"/>
                                         </openGLView>
                                     </subviews>
@@ -1232,6 +1232,11 @@ Gw
                         <outlet property="TemperatureTextField_fclk" destination="HYv-IY-peL" id="p6g-38-ubK"/>
                         <outlet property="TemperatureTextField_pwr" destination="W9U-Hl-CRY" id="wr9-lq-5mp"/>
                         <outlet property="TemperatureTextField_tref" destination="UT0-LE-8YX" id="fDX-J6-Nha"/>
+                        <outlet property="VoltagsTextField_onethree" destination="nI7-Va-7aJ" id="Tgj-Yw-wse"/>
+                        <outlet property="VoltsTextField_five" destination="IfM-xo-hqY" id="Mq2-Xd-gIf"/>
+                        <outlet property="VoltsTextField_mfive" destination="hEJ-PO-X9Y" id="pya-cX-rZU"/>
+                        <outlet property="VoltsTextField_onefive" destination="nI7-Va-7aJ" id="SSr-VI-TYp"/>
+                        <outlet property="VoltsTextField_threethree" destination="dRt-gR-etS" id="CBE-9J-X0g"/>
                         <outlet property="commandNumberTextField" destination="JYS-6m-Brh" id="6Tx-J6-1ik"/>
                         <outlet property="commandValueTextField" destination="ncV-Kg-lhS" id="Yje-bZ-77d"/>
                         <outlet property="fiveVoltsTextField" destination="IfM-xo-hqY" id="rcE-YH-G7x"/>
