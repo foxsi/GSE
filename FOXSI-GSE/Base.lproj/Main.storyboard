@@ -1155,9 +1155,6 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <openGLView fixedFrame="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DfJ-ge-nXV">
-                                <rect key="frame" x="20" y="87" width="543" height="338"/>
-                            </openGLView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IW3-Px-Qsf">
                                 <rect key="frame" x="731" y="562" width="120" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Label" id="Aog-hV-eBv">
@@ -1166,9 +1163,74 @@ Gw
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <box autoresizesSubviews="NO" fixedFrame="YES" title="Detectors" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="cki-ET-WmE">
+                                <rect key="frame" x="12" y="16" width="554" height="409"/>
+                                <view key="contentView">
+                                    <rect key="frame" x="1" y="1" width="552" height="393"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81j-Bf-JSW">
+                                            <rect key="frame" x="457" y="256" width="21" height="96"/>
+                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="yIG-Bb-RLX"/>
+                                        </slider>
+                                        <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3uf-S5-uS4">
+                                            <rect key="frame" x="504" y="256" width="21" height="96"/>
+                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="uMc-HW-pEd"/>
+                                        </slider>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qID-r8-Rzf">
+                                            <rect key="frame" x="450" y="235" width="31" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Max" id="tTt-h1-aYC">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vey-Fw-alr">
+                                            <rect key="frame" x="486" y="234" width="57" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Half-Life" id="Xam-jX-vea">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CiP-db-XQx">
+                                            <rect key="frame" x="500" y="361" width="34" height="22"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="etM-c7-EkS">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="995-aD-Ew8">
+                                            <rect key="frame" x="450" y="361" width="34" height="22"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="93G-nb-hC3">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <openGLView fixedFrame="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uvA-7q-J7s">
+                                            <rect key="frame" x="18" y="14" width="412" height="369"/>
+                                        </openGLView>
+                                    </subviews>
+                                </view>
+                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </box>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="TemperatureTextField_aact" destination="zll-oL-YC4" id="xfc-8x-RSb"/>
+                        <outlet property="TemperatureTextField_det0" destination="cTD-qa-WzP" id="5WI-by-jCX"/>
+                        <outlet property="TemperatureTextField_det1" destination="oGp-J6-2qd" id="9tj-xJ-QBE"/>
+                        <outlet property="TemperatureTextField_det3" destination="hXo-5Y-YZj" id="0UF-De-jOZ"/>
+                        <outlet property="TemperatureTextField_det4" destination="kf6-hP-xfW" id="dXO-o8-EVO"/>
+                        <outlet property="TemperatureTextField_det6" destination="Kyy-vr-vsQ" id="Cq7-af-Wuq"/>
+                        <outlet property="TemperatureTextField_dplan" destination="ex3-AK-GsV" id="wJV-Rc-URO"/>
+                        <outlet property="TemperatureTextField_fact" destination="n7R-uf-XQG" id="xnH-qW-FEB"/>
+                        <outlet property="TemperatureTextField_fclk" destination="HYv-IY-peL" id="p6g-38-ubK"/>
+                        <outlet property="TemperatureTextField_pwr" destination="W9U-Hl-CRY" id="wr9-lq-5mp"/>
+                        <outlet property="TemperatureTextField_tref" destination="UT0-LE-8YX" id="fDX-J6-Nha"/>
                         <outlet property="commandNumberTextField" destination="JYS-6m-Brh" id="6Tx-J6-1ik"/>
                         <outlet property="commandValueTextField" destination="ncV-Kg-lhS" id="Yje-bZ-77d"/>
                         <outlet property="fiveVoltsTextField" destination="IfM-xo-hqY" id="rcE-YH-G7x"/>

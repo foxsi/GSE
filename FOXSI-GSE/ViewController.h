@@ -29,6 +29,17 @@
 @property (weak) IBOutlet NSTextField *threeThreeVoltsTextField;
 
 // Temperatures Box
+@property (weak) IBOutlet NSTextField *TemperatureTextField_tref;
+@property (weak) IBOutlet NSTextField *TemperatureTextField_pwr;
+@property (weak) IBOutlet NSTextField *TemperatureTextField_fact;
+@property (weak) IBOutlet NSTextField *TemperatureTextField_fclk;
+@property (weak) IBOutlet NSTextField *TemperatureTextField_aact;
+@property (weak) IBOutlet NSTextField *TemperatureTextField_det6;
+@property (weak) IBOutlet NSTextField *TemperatureTextField_det3;
+@property (weak) IBOutlet NSTextField *TemperatureTextField_det4;
+@property (weak) IBOutlet NSTextField *TemperatureTextField_det1;
+@property (weak) IBOutlet NSTextField *TemperatureTextField_dplan;
+@property (weak) IBOutlet NSTextField *TemperatureTextField_det0;
 
 
 // Controls Box

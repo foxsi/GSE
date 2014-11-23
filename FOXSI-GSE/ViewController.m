@@ -97,7 +97,7 @@
 
 - (void) updateCurrentTime
 {
-    self.localTimeTextField.integerValue = [[NSDate date] timeIntervalSinceDate:self.startTime];
+    self.localTimeTextField.stringValue = [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateIntervalFormatterFullStyle];
 }
 
 @end
