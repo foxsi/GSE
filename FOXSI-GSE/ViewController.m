@@ -30,6 +30,8 @@
                                                object:nil];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateCurrentTime) userInfo:nil repeats:YES];
+    
+    
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -101,9 +103,8 @@
         self.VoltsTextField_onefive.floatValue = [[thisFrame.voltages objectAtIndex:2] floatValue];
         self.VoltsTextField_threethree.floatValue = [[thisFrame.voltages objectAtIndex:3] floatValue];
 
-        
+        [self.foxsiView setNeedsDisplay:YES];
     }
-    
 }
 
 - (void) StoppedReadingDataNotification:(NSNotification *) notification

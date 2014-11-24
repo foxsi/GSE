@@ -1232,22 +1232,18 @@ Gw
                         <outlet property="TemperatureTextField_fclk" destination="HYv-IY-peL" id="p6g-38-ubK"/>
                         <outlet property="TemperatureTextField_pwr" destination="W9U-Hl-CRY" id="wr9-lq-5mp"/>
                         <outlet property="TemperatureTextField_tref" destination="UT0-LE-8YX" id="fDX-J6-Nha"/>
-                        <outlet property="VoltagsTextField_onethree" destination="nI7-Va-7aJ" id="Tgj-Yw-wse"/>
                         <outlet property="VoltsTextField_five" destination="IfM-xo-hqY" id="Mq2-Xd-gIf"/>
                         <outlet property="VoltsTextField_mfive" destination="hEJ-PO-X9Y" id="pya-cX-rZU"/>
                         <outlet property="VoltsTextField_onefive" destination="nI7-Va-7aJ" id="SSr-VI-TYp"/>
                         <outlet property="VoltsTextField_threethree" destination="dRt-gR-etS" id="CBE-9J-X0g"/>
                         <outlet property="commandNumberTextField" destination="JYS-6m-Brh" id="6Tx-J6-1ik"/>
                         <outlet property="commandValueTextField" destination="ncV-Kg-lhS" id="Yje-bZ-77d"/>
-                        <outlet property="fiveVoltsTextField" destination="IfM-xo-hqY" id="rcE-YH-G7x"/>
+                        <outlet property="foxsiView" destination="uvA-7q-J7s" id="miH-1F-syL"/>
                         <outlet property="frameNumberTextField" destination="g1j-e7-7a0" id="YxE-ZZ-JPo"/>
                         <outlet property="highVoltageTextField" destination="81A-gI-dp2" id="Vmb-bj-SE8"/>
                         <outlet property="localTimeTextField" destination="Fo4-I0-jmw" id="F2U-9X-p3j"/>
-                        <outlet property="minusFiveVoltsTextField" destination="hEJ-PO-X9Y" id="kTV-7h-3uS"/>
-                        <outlet property="oneThreeVoltagsTextField" destination="nI7-Va-7aJ" id="Jht-wn-27C"/>
                         <outlet property="progressIndicator" destination="UKe-EJ-iD1" id="MVc-9Y-F1i"/>
                         <outlet property="shutterStateTextField" destination="GJY-Lk-lJG" id="QLZ-9p-aBx"/>
-                        <outlet property="threeThreeVoltsTextField" destination="dRt-gR-etS" id="vG9-Lk-N47"/>
                         <outlet property="timeTextField" destination="zb9-0X-cHp" id="iTg-Ld-WQI"/>
                         <outlet property="versionTextField" destination="IW3-Px-Qsf" id="9hL-8Y-N2k"/>
                     </connections>

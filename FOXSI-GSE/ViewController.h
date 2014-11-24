@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "FOXSIView.h"
 
 @interface ViewController : NSViewController
 
@@ -50,6 +51,7 @@
 - (IBAction)CancelAction:(NSButton *)sender;
 - (IBAction)TestAction:(NSButton *)sender;
 
+@property (weak) IBOutlet FOXSIView *foxsiView;
 
 @property (nonatomic, retain) NSOperationQueue *operationQueue;
 @property (nonatomic, retain) NSTimer *timer;
