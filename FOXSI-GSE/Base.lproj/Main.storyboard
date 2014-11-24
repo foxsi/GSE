@@ -1171,11 +1171,17 @@ Gw
                                     <subviews>
                                         <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81j-Bf-JSW">
                                             <rect key="frame" x="457" y="256" width="21" height="96"/>
-                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="yIG-Bb-RLX"/>
+                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="yIG-Bb-RLX"/>
+                                            <connections>
+                                                <binding destination="XfG-lQ-9wD" name="value" keyPath="sliderAmount" id="g2w-0O-h6K"/>
+                                            </connections>
                                         </slider>
                                         <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3uf-S5-uS4">
                                             <rect key="frame" x="504" y="256" width="21" height="96"/>
-                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="uMc-HW-pEd"/>
+                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="uMc-HW-pEd"/>
+                                            <connections>
+                                                <binding destination="XfG-lQ-9wD" name="value" keyPath="halfLifeValue" id="DJD-ul-mOE"/>
+                                            </connections>
                                         </slider>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qID-r8-Rzf">
                                             <rect key="frame" x="450" y="235" width="31" height="17"/>
@@ -1200,6 +1206,9 @@ Gw
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <binding destination="XfG-lQ-9wD" name="value" keyPath="halfLifeValue" id="Nz4-J9-qWG"/>
+                                            </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="995-aD-Ew8">
                                             <rect key="frame" x="450" y="361" width="34" height="22"/>
@@ -1208,6 +1217,9 @@ Gw
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <binding destination="XfG-lQ-9wD" name="value" keyPath="sliderAmount" id="qRN-hi-wmB"/>
+                                            </connections>
                                         </textField>
                                         <openGLView fixedFrame="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uvA-7q-J7s" customClass="FOXSIView">
                                             <rect key="frame" x="18" y="14" width="412" height="369"/>
@@ -1249,6 +1261,7 @@ Gw
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="dP9-fK-6sF"/>
             </objects>
             <point key="canvasLocation" x="331.5" y="819.5"/>
         </scene>

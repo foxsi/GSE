@@ -15,6 +15,9 @@
 
 @synthesize operationQueue = _operationQueue;
 
+@synthesize sliderAmount;
+@synthesize halfLifeValue;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 

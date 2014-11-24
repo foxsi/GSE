@@ -9,7 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import "FOXSIView.h"
 
-@interface ViewController : NSViewController
+@interface ViewController : NSViewController{
+    @private
+    int sliderAmount;
+    int halfLifeValue;
+}
+
+@property int sliderAmount;
+@property int halfLifeValue;
 
 @property (weak) IBOutlet NSTextField *localTimeTextField;
 @property (weak) IBOutlet NSTextField *versionTextField;
