@@ -17,7 +17,10 @@
 @property (strong) NSNumber *commnand_count;
 @property (strong) NSNumber *command_value;
 @property (strong) NSNumber *high_voltage;
+@property (strong) NSMutableArray *housekeeping;
+@property int type;
 
 -(void) addTemperature: (unsigned short int)temp atIndex: (unsigned short int)i;
 -(void) addVoltage: (unsigned short int)v atIndex: (unsigned short int)i;
+
 @end

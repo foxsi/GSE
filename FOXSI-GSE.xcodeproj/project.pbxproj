@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		865F32D21A2372FF00860E1C /* Detector.m in Sources */ = {isa = PBXBuildFile; fileRef = 865F32D11A2372FF00860E1C /* Detector.m */; };
+		865F32DD1A23C6AD00860E1C /* DataHousekeeping.m in Sources */ = {isa = PBXBuildFile; fileRef = 865F32DC1A23C6AD00860E1C /* DataHousekeeping.m */; };
 		866EC43D1A1D853C009FDCF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC43C1A1D853C009FDCF3 /* AppDelegate.m */; };
 		866EC43F1A1D853C009FDCF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC43E1A1D853C009FDCF3 /* main.m */; };
 		866EC4421A1D853C009FDCF3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC4411A1D853C009FDCF3 /* ViewController.m */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		865F32D01A2372FF00860E1C /* Detector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detector.h; sourceTree = "<group>"; };
 		865F32D11A2372FF00860E1C /* Detector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detector.m; sourceTree = "<group>"; };
+		865F32DB1A23C6AD00860E1C /* DataHousekeeping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHousekeeping.h; sourceTree = "<group>"; };
+		865F32DC1A23C6AD00860E1C /* DataHousekeeping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHousekeeping.m; sourceTree = "<group>"; };
 		866EC4361A1D853C009FDCF3 /* FOXSI-GSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FOXSI-GSE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		866EC43A1A1D853C009FDCF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		866EC43B1A1D853C009FDCF3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 				866EC45D1A1D927D009FDCF3 /* ReadDataOp.m */,
 				866EC45F1A1EFBCC009FDCF3 /* DataFrame.h */,
 				866EC4601A1EFBCC009FDCF3 /* DataFrame.m */,
+				865F32DB1A23C6AD00860E1C /* DataHousekeeping.h */,
+				865F32DC1A23C6AD00860E1C /* DataHousekeeping.m */,
 				866EC4391A1D853C009FDCF3 /* Supporting Files */,
 			);
 			path = "FOXSI-GSE";
@@ -272,6 +277,7 @@
 			files = (
 				866EC4611A1EFBCC009FDCF3 /* DataFrame.m in Sources */,
 				865F32D21A2372FF00860E1C /* Detector.m in Sources */,
+				865F32DD1A23C6AD00860E1C /* DataHousekeeping.m in Sources */,
 				86FEAB0C1A23701200953CC1 /* DetectorView.m in Sources */,
 				866EC45E1A1D927D009FDCF3 /* ReadDataOp.m in Sources */,
 				86EB954A1A21A3A6007EEBFC /* FOXSIView.m in Sources */,

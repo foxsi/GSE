@@ -54,7 +54,7 @@
                     
                     if( good_read == true ){
                         // pass off for parsing to dataframe object
-                        DataFrame *thisFrame = [[DataFrame alloc] init];
+                        
                         
                         long long time;
                         unsigned short int command_count;
@@ -73,6 +73,8 @@
                         // order is 5V, -5V, 1.5V, -3.3V
                         unsigned short int voltage_monitors[NUMBER_OF_VOLTAGE_MONITORS] = {0};
                         
+                        DataFrame *thisFrame = [[DataFrame alloc] init];
+
                         index++;
                         
                         time = (((unsigned long long) buffer[index] << 32) & 0xFFFF00000000);
@@ -92,6 +94,8 @@
                         thisFrame.number = [NSNumber numberWithLong:frameNumber];
                         
                         frame_type = buffer[index+1] & 0x3;
+                        
+                        thisFrame.type = frame_type;
                         
                         index++;
                         index++;
@@ -219,15 +223,6 @@
                         //printf("Status 6: %x\n", buffer[index]);
                         index++;
                         
-                        for(int temp_sensor_num = 0; temp_sensor_num < NUMBER_OF_TEMPERATURE_SENSORS; temp_sensor_num++)
-                        {
-                            [thisFrame addTemperature:temperature_monitors[temp_sensor_num] atIndex:temp_sensor_num];
-                        }
-                        
-                        for (int volt_monitor_number = 0; volt_monitor_number < NUMBER_OF_VOLTAGE_MONITORS; volt_monitor_number++) {
-                            [thisFrame addVoltage:voltage_monitors[volt_monitor_number] atIndex:volt_monitor_number];
-                        }
-                        
                         //NSLog(@"index = %i", index);
 
                         index += 254-index ;
@@ -242,6 +237,15 @@
                         index+=256;
                     }
                 }
+            }
+            
+            for(int temp_sensor_num = 0; temp_sensor_num < NUMBER_OF_TEMPERATURE_SENSORS; temp_sensor_num++)
+            {
+                [thisFrame addTemperature:temperature_monitors[temp_sensor_num] atIndex:temp_sensor_num];
+            }
+            
+            for (int volt_monitor_number = 0; volt_monitor_number < NUMBER_OF_VOLTAGE_MONITORS; volt_monitor_number++) {
+                [thisFrame addVoltage:voltage_monitors[volt_monitor_number] atIndex:volt_monitor_number];
             }
         }
     }
