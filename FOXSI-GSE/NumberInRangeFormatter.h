@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Steven Christe. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 @interface NumberInRangeFormatter : NSFormatter
 

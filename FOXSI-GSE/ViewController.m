@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ReadDataOp.h"
 #import "DataFrame.h"
+#import "NumberInRangeFormatter.h"
 
 @implementation ViewController
 
@@ -31,6 +32,10 @@
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateCurrentTime) userInfo:nil repeats:YES];
     
+    NumberInRangeFormatter *formatter;
+    formatter = [self.highVoltageTextField formatter];
+    formatter.maximum = 100;
+    formatter.minimum = 10;
     
 }
 

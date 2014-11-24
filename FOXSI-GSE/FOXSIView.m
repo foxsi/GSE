@@ -9,52 +9,65 @@
 #import "FOXSIView.h"
 #include <OpenGL/gl.h>
 #include <OpenGL/glext.h>
-#import <GLUT/GLUT.h>
+#include <GLUT/GLUT.h>
 
 #define XSTRIPS 128
 #define YSTRIPS 128
 #define	XBORDER 5
 #define YBORDER 5
 #define NUM_DETECTORS 7
-#define BORDER_BUFFER 25
+#define BORDER_BUFFER 35
 
-@interface FOXSIView()
--(void) drawText: (NSPoint) origin :(NSString *)text;
+@interface FOXSIView ()
 @property (nonatomic, strong) NSArray *detector_angles;
+-(void) drawText: (NSPoint) origin :(NSString *)text;
 @end
 
 @implementation FOXSIView
 
-@synthesize detector_angles = _detector_angles;
+@synthesize detector_angles;
 
 -(id) initWithFrame:(NSRect)frameRect
 {
     self = [super initWithFrame:frameRect];
     if (self) {
-        //initialization
-        self.detector_angles = [NSArray arrayWithObjects:[NSNumber numberWithFloat:82.5],
-                                [NSNumber numberWithFloat:-7.5+90.0],
-                                [NSNumber numberWithFloat:-67.5],
-                                [NSNumber numberWithFloat:-75.0],
-                                [NSNumber numberWithFloat:-87.5+180],
-                                [NSNumber numberWithFloat:90.0],
-                                [NSNumber numberWithFloat:-60], nil];
+        // does not execute this code?!
     }
     return self;
 }
 
++ (NSOpenGLPixelFormat *)defaultPixelFormat
+{
+    static NSOpenGLPixelFormat *pf;
+    
+    if (pf == nil)
+    {
+        /*
+         Making sure the context's pixel format doesn't have a recovery renderer is important - otherwise CoreImage may not be able to create deeper context's that share textures with this one.
+         */
+        static const NSOpenGLPixelFormatAttribute attr[] = {
+            NSOpenGLPFAAccelerated,
+            NSOpenGLPFANoRecovery,
+            NSOpenGLPFAColorSize, 32,
+            NSOpenGLPFAAllowOfflineRenderers,  /* Allow use of offline renderers */
+            0
+        };
+        
+        pf = [[NSOpenGLPixelFormat alloc] initWithAttributes:(void *)&attr];
+    }
+    
+    return pf;
+}
+
+
+
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
     
+    [[self openGLContext] makeCurrentContext];
+    
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    
-   	glMatrixMode(GL_MODELVIEW);
-    glDisable(GL_DEPTH_TEST);
-   	glPushMatrix();
     
     for (int detector_num = 0; detector_num < NUM_DETECTORS; detector_num++) {
         NSPoint center = NSMakePoint(0, 0);
@@ -71,11 +84,11 @@
                 break;
             case 2:
                 center.x = 2*XSTRIPS + BORDER_BUFFER; center.y = 1.5*YSTRIPS + BORDER_BUFFER;
-                position_name = @"+D%2 (CdTe)";
+                position_name = @"+D2 (CdTe)";
                 break;
             case 3:
                 center.x = 2*XSTRIPS + BORDER_BUFFER; center.y = 0.5*YSTRIPS - BORDER_BUFFER;
-                position_name = @"D%3 (CdTe)";
+                position_name = @"D3 (CdTe)";
                 break;
             case 4:
                 center.x = XSTRIPS; center.y = 0.0 - BORDER_BUFFER;
@@ -102,7 +115,8 @@
         
         glScaled(1, -1, 0);
         // rotate by 90 CW and flip to correct image based on lead images
-        glRotatef( [[self.detector_angles objectAtIndex:detector_num] floatValue] + 90, 0.0f, 0.0f, 1.0f);
+        float rotationAngle = [[self.detector_angles objectAtIndex:detector_num] floatValue];
+        glRotatef( rotationAngle + 90, 0.0f, 0.0f, 1.0f);
         // glScaled(1, 1, 1);
         glScaled(-1, -1, 1);
         
@@ -176,18 +190,45 @@
 
 - (void)prepareOpenGL
 {
-    // init GL stuff here
-    glLoadIdentity();
-    glPushMatrix();
+    GLint parm = 1;
     
-    gluOrtho2D(0, 3*XSTRIPS+4 + BORDER_BUFFER * 2 + 2 * BORDER_BUFFER, 0, 3 * YSTRIPS + 4 + BORDER_BUFFER * 2 + 2 *BORDER_BUFFER);
-    glMatrixMode(GL_MODELVIEW);
+    /* Enable beam-synced updates. */
     
+    [[self openGLContext] setValues:&parm forParameter:NSOpenGLCPSwapInterval];
+    
+    /* Make sure that everything we don't need is disabled. Some of these
+     * are enabled by default and can slow down rendering. */
+    
+    glDisable(GL_ALPHA_TEST);
     glDisable(GL_DEPTH_TEST);
-    glEnable(GL_BLEND);
-    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    glDisable(GL_SCISSOR_TEST);
+    glDisable(GL_BLEND);
+    glDisable(GL_DITHER);
+    glDisable(GL_CULL_FACE);
+    glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+    glDepthMask(GL_FALSE);
+    glStencilMask(0);
+    glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+    glHint(GL_TRANSFORM_HINT_APPLE, GL_FASTEST);
+
+    NSRect bounds = [self bounds];
+    glViewport(0, 0, bounds.size.width, bounds.size.height);
+    
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0, 3*XSTRIPS+4 + BORDER_BUFFER * 2 + 2 * BORDER_BUFFER, 0, 3 * YSTRIPS + 4 + BORDER_BUFFER * 2 + 2 *BORDER_BUFFER, -1, 1);
+    
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    
+    //initialization
+    self.detector_angles = [NSArray arrayWithObjects:[NSNumber numberWithFloat:82.5],
+                            [NSNumber numberWithFloat:-7.5+90.0],
+                            [NSNumber numberWithFloat:-67.5],
+                            [NSNumber numberWithFloat:-75.0],
+                            [NSNumber numberWithFloat:-87.5+180],
+                            [NSNumber numberWithFloat:90.0],
+                            [NSNumber numberWithFloat:-60], nil];
 }
 
 -(void) drawText: (NSPoint) origin :(NSString *)text
@@ -197,5 +238,7 @@
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, [text characterAtIndex:i]);
     }
 }
+
+
 
 @end

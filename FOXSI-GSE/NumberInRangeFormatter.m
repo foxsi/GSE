@@ -57,7 +57,7 @@
     
     if ([[attrString string] floatValue] < self.minimum)
     {
-        NSDictionary *firstAttributes = @{NSBackgroundColorAttributeName: [NSColor blueColor], NSForegroundColorAttributeName: [NSColor whiteColor]};
+       NSDictionary *firstAttributes = @{NSBackgroundColorAttributeName: [NSColor blueColor], NSForegroundColorAttributeName: [NSColor whiteColor]};
         [attrString addAttributes:firstAttributes range:NSMakeRange(0, stringLength)];
     }
     if ([[attrString string] floatValue] > self.maximum)

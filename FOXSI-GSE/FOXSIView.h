@@ -10,6 +10,4 @@
 
 @interface FOXSIView : NSOpenGLView
 
-- (void) prepareOpenGL;
-
 @end
