@@ -50,6 +50,10 @@
 @property (weak) IBOutlet NSTextField *TemperatureTextField_det0;
 @property (weak) IBOutlet NSTextField *TemperatureTextField_abrd;
 
+// FOXSI Image
+@property (weak) IBOutlet NSTextField *PixelIndexTextField;
+@property (weak) IBOutlet NSTextField *ArcminIndexTextField;
+
 
 // Controls Box
 @property (weak) IBOutlet NSProgressIndicator *progressIndicator;

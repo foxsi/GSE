@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		863E412E1A204F320065B926 /* version.txt in Resources */ = {isa = PBXBuildFile; fileRef = 863E412D1A204F320065B926 /* version.txt */; };
+		865F32D21A2372FF00860E1C /* Detector.m in Sources */ = {isa = PBXBuildFile; fileRef = 865F32D11A2372FF00860E1C /* Detector.m */; };
 		866EC43D1A1D853C009FDCF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC43C1A1D853C009FDCF3 /* AppDelegate.m */; };
 		866EC43F1A1D853C009FDCF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC43E1A1D853C009FDCF3 /* main.m */; };
 		866EC4421A1D853C009FDCF3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC4411A1D853C009FDCF3 /* ViewController.m */; };
@@ -18,6 +18,7 @@
 		866EC4611A1EFBCC009FDCF3 /* DataFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC4601A1EFBCC009FDCF3 /* DataFrame.m */; };
 		86EB954A1A21A3A6007EEBFC /* FOXSIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB95491A21A3A6007EEBFC /* FOXSIView.m */; };
 		86EB954D1A22D578007EEBFC /* NumberInRangeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB954C1A22D578007EEBFC /* NumberInRangeFormatter.m */; };
+		86FEAB0C1A23701200953CC1 /* DetectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FEAB0B1A23701200953CC1 /* DetectorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		863E412D1A204F320065B926 /* version.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = version.txt; sourceTree = "<group>"; };
+		865F32D01A2372FF00860E1C /* Detector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detector.h; sourceTree = "<group>"; };
+		865F32D11A2372FF00860E1C /* Detector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detector.m; sourceTree = "<group>"; };
 		866EC4361A1D853C009FDCF3 /* FOXSI-GSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FOXSI-GSE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		866EC43A1A1D853C009FDCF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		866EC43B1A1D853C009FDCF3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,8 +52,10 @@
 		866EC4601A1EFBCC009FDCF3 /* DataFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataFrame.m; sourceTree = "<group>"; };
 		86EB95481A21A3A6007EEBFC /* FOXSIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXSIView.h; sourceTree = "<group>"; };
 		86EB95491A21A3A6007EEBFC /* FOXSIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXSIView.m; sourceTree = "<group>"; };
-		86EB954B1A22D578007EEBFC /* NumberInRangeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NumberInRangeFormatter.h; path = "FOXSI-GSE/NumberInRangeFormatter.h"; sourceTree = "<group>"; };
-		86EB954C1A22D578007EEBFC /* NumberInRangeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NumberInRangeFormatter.m; path = "FOXSI-GSE/NumberInRangeFormatter.m"; sourceTree = "<group>"; };
+		86EB954B1A22D578007EEBFC /* NumberInRangeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberInRangeFormatter.h; sourceTree = "<group>"; };
+		86EB954C1A22D578007EEBFC /* NumberInRangeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberInRangeFormatter.m; sourceTree = "<group>"; };
+		86FEAB0A1A23701200953CC1 /* DetectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetectorView.h; sourceTree = "<group>"; };
+		86FEAB0B1A23701200953CC1 /* DetectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetectorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,11 +76,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		866EC42D1A1D853C009FDCF3 = {
+		865F32D31A23730800860E1C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				86EB954B1A22D578007EEBFC /* NumberInRangeFormatter.h */,
 				86EB954C1A22D578007EEBFC /* NumberInRangeFormatter.m */,
+				865F32D01A2372FF00860E1C /* Detector.h */,
+				865F32D11A2372FF00860E1C /* Detector.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		866EC42D1A1D853C009FDCF3 = {
+			isa = PBXGroup;
+			children = (
 				866EC4381A1D853C009FDCF3 /* FOXSI-GSE */,
 				866EC44F1A1D853C009FDCF3 /* FOXSI-GSETests */,
 				866EC4371A1D853C009FDCF3 /* Products */,
@@ -95,12 +108,15 @@
 		866EC4381A1D853C009FDCF3 /* FOXSI-GSE */ = {
 			isa = PBXGroup;
 			children = (
+				865F32D31A23730800860E1C /* Classes */,
 				866EC43B1A1D853C009FDCF3 /* AppDelegate.h */,
 				866EC43C1A1D853C009FDCF3 /* AppDelegate.m */,
 				866EC4401A1D853C009FDCF3 /* ViewController.h */,
 				866EC4411A1D853C009FDCF3 /* ViewController.m */,
 				86EB95481A21A3A6007EEBFC /* FOXSIView.h */,
 				86EB95491A21A3A6007EEBFC /* FOXSIView.m */,
+				86FEAB0A1A23701200953CC1 /* DetectorView.h */,
+				86FEAB0B1A23701200953CC1 /* DetectorView.m */,
 				866EC4431A1D853C009FDCF3 /* Images.xcassets */,
 				866EC4451A1D853C009FDCF3 /* Main.storyboard */,
 				866EC45C1A1D927D009FDCF3 /* ReadDataOp.h */,
@@ -115,7 +131,6 @@
 		866EC4391A1D853C009FDCF3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				863E412D1A204F320065B926 /* version.txt */,
 				866EC43A1A1D853C009FDCF3 /* Info.plist */,
 				866EC43E1A1D853C009FDCF3 /* main.m */,
 			);
@@ -149,6 +164,7 @@
 				866EC4321A1D853C009FDCF3 /* Sources */,
 				866EC4331A1D853C009FDCF3 /* Frameworks */,
 				866EC4341A1D853C009FDCF3 /* Resources */,
+				865F32DA1A23A54600860E1C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -219,7 +235,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				863E412E1A204F320065B926 /* version.txt in Resources */,
 				866EC4441A1D853C009FDCF3 /* Images.xcassets in Resources */,
 				866EC4471A1D853C009FDCF3 /* Main.storyboard in Resources */,
 			);
@@ -234,12 +249,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		865F32DA1A23A54600860E1C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Auto Increment Version Script\nbuildPlist=${PROJECT_DIR}/${INFOPLIST_FILE}\nCFBundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $buildPlist)\nCFBundleVersion=$(($CFBundleVersion + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $CFBundleVersion\" $buildPlist\nCFBundleSignature=$(git log --format=\"%h %ai\" -n1)\n/usr/libexec/PlistBuddy -c \"Set :CFBundleSignature $CFBundleSignature\" $buildPlist";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		866EC4321A1D853C009FDCF3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				866EC4611A1EFBCC009FDCF3 /* DataFrame.m in Sources */,
+				865F32D21A2372FF00860E1C /* Detector.m in Sources */,
+				86FEAB0C1A23701200953CC1 /* DetectorView.m in Sources */,
 				866EC45E1A1D927D009FDCF3 /* ReadDataOp.m in Sources */,
 				86EB954A1A21A3A6007EEBFC /* FOXSIView.m in Sources */,
 				86EB954D1A22D578007EEBFC /* NumberInRangeFormatter.m in Sources */,

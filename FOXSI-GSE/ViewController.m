@@ -40,6 +40,8 @@
     formatter.maximum = 100;
     formatter.minimum = 10;
     
+    NSString *appVersionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleSignature"];
+    self.versionTextField.stringValue = appVersionString;
 }
 
 - (void)setRepresentedObject:(id)representedObject {

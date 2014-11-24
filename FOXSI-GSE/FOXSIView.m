@@ -59,8 +59,6 @@
     return pf;
 }
 
-
-
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
     
@@ -185,7 +183,7 @@
     glFinish();
     glFlush();
     
-    [self setNeedsDisplay:YES];
+    //[self setNeedsDisplay:YES];
 }
 
 - (void)prepareOpenGL
