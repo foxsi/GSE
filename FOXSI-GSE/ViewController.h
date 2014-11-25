@@ -21,7 +21,6 @@
 @property (weak) IBOutlet NSTextField *localTimeTextField;
 @property (weak) IBOutlet NSTextField *versionTextField;
 
-
 // Telemetry Box
 @property (weak) IBOutlet NSTextField *frameNumberTextField;
 @property (weak) IBOutlet NSTextField *timeTextField;
@@ -67,6 +66,8 @@
 @property (nonatomic, retain) NSOperationQueue *operationQueue;
 @property (nonatomic, retain) NSTimer *timer;
 @property (nonatomic, retain) NSDate *startTime;
+
+@property (nonatomic, retain) NSArray *detectors;
 
 - (void) receiveDataReadyNotification:(NSNotification *) notification;
 - (void) StoppedReadingDataNotification:(NSNotification *) notification;

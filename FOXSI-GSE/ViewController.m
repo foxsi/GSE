@@ -11,6 +11,7 @@
 #import "DataFrame.h"
 #import "DataHousekeeping.h"
 #import "NumberInRangeFormatter.h"
+#import "Detector.h"
 
 @implementation ViewController
 
@@ -18,6 +19,7 @@
 
 @synthesize sliderAmount;
 @synthesize halfLifeValue;
+@synthesize detectors;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,6 +49,24 @@
     
     NSString *appVersionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleSignature"];
     self.versionTextField.stringValue = appVersionString;
+    
+    Detector *detector0 = [[Detector alloc] init];
+    detector0.name = @"D0";
+    Detector *detector1 = [[Detector alloc] init];
+    detector0.name = @"D1";
+    Detector *detector2 = [[Detector alloc] init];
+    detector0.name = @"D2";
+    Detector *detector3 = [[Detector alloc] init];
+    detector0.name = @"D3";
+    Detector *detector4 = [[Detector alloc] init];
+    detector0.name = @"D4";
+    Detector *detector5 = [[Detector alloc] init];
+    detector0.name = @"D5";
+    Detector *detector6 = [[Detector alloc] init];
+    detector0.name = @"D6";
+    
+    self.detectors = [NSArray arrayWithObjects:detector0, detector1, detector2,
+                      detector3, detector4, detector5, detector6, nil];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
