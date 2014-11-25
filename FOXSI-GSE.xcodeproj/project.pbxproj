@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		865F32D21A2372FF00860E1C /* Detector.m in Sources */ = {isa = PBXBuildFile; fileRef = 865F32D11A2372FF00860E1C /* Detector.m */; };
 		865F32DD1A23C6AD00860E1C /* DataHousekeeping.m in Sources */ = {isa = PBXBuildFile; fileRef = 865F32DC1A23C6AD00860E1C /* DataHousekeeping.m */; };
+		865F32E01A24229F00860E1C /* utilities.c in Sources */ = {isa = PBXBuildFile; fileRef = 865F32DE1A24229F00860E1C /* utilities.c */; };
 		866EC43D1A1D853C009FDCF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC43C1A1D853C009FDCF3 /* AppDelegate.m */; };
 		866EC43F1A1D853C009FDCF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC43E1A1D853C009FDCF3 /* main.m */; };
 		866EC4421A1D853C009FDCF3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC4411A1D853C009FDCF3 /* ViewController.m */; };
@@ -37,6 +38,8 @@
 		865F32D11A2372FF00860E1C /* Detector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detector.m; sourceTree = "<group>"; };
 		865F32DB1A23C6AD00860E1C /* DataHousekeeping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHousekeeping.h; sourceTree = "<group>"; };
 		865F32DC1A23C6AD00860E1C /* DataHousekeeping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHousekeeping.m; sourceTree = "<group>"; };
+		865F32DE1A24229F00860E1C /* utilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utilities.c; sourceTree = "<group>"; };
+		865F32DF1A24229F00860E1C /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
 		866EC4361A1D853C009FDCF3 /* FOXSI-GSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FOXSI-GSE.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		866EC43A1A1D853C009FDCF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		866EC43B1A1D853C009FDCF3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				866EC43C1A1D853C009FDCF3 /* AppDelegate.m */,
 				866EC4401A1D853C009FDCF3 /* ViewController.h */,
 				866EC4411A1D853C009FDCF3 /* ViewController.m */,
+				865F32DE1A24229F00860E1C /* utilities.c */,
+				865F32DF1A24229F00860E1C /* utilities.h */,
 				86EB95481A21A3A6007EEBFC /* FOXSIView.h */,
 				86EB95491A21A3A6007EEBFC /* FOXSIView.m */,
 				86FEAB0A1A23701200953CC1 /* DetectorView.h */,
@@ -284,6 +289,7 @@
 				86EB954D1A22D578007EEBFC /* NumberInRangeFormatter.m in Sources */,
 				866EC4421A1D853C009FDCF3 /* ViewController.m in Sources */,
 				866EC43F1A1D853C009FDCF3 /* main.m in Sources */,
+				865F32E01A24229F00860E1C /* utilities.c in Sources */,
 				866EC43D1A1D853C009FDCF3 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

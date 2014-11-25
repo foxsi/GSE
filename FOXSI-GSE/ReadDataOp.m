@@ -9,11 +9,13 @@
 #import "ReadDataOp.h"
 #import "DataFrame.h"
 #import "DataHousekeeping.h"
+#include "utilities.h"
 
 #define FRAME_SIZE_IN_SHORTINTS 1024
 #define FRAME_SIZE_IN_BYTES 2048
 #define NUMBER_OF_TEMPERATURE_SENSORS 12
 #define NUMBER_OF_VOLTAGE_MONITORS 4
+#define NUM_DETECTORS 7
 
 @implementation ReadDataOp
 
@@ -235,7 +237,172 @@
                         index++;
                         
                         //NSLog(@"index = %i", index);
-
+                        
+                        for(int detector_num = 0; detector_num < NUM_DETECTORS; detector_num++){
+                            unsigned short int common_mode = 0;
+                            
+                            unsigned short int ymask[128] = {0};
+                            unsigned short int xmask[128] = {0};
+                            // xstrips are defined as p strips
+                            unsigned short int xstrips[128] = {0};
+                            // ystrips are defined as n strips
+                            unsigned short int ystrips[128] = {0};
+                            //printf("Detector %u time, index %i: %u\n", detector_num, buffer[index], index);
+                            
+                            unsigned short int detector_time = 0;
+                            detector_time = buffer[index];
+                            
+                            // check to see if detector data exists
+                            bool detector_data_exists;
+                            detector_data_exists = !((buffer[index] == buffer[index+1]) && (buffer[index+2] == buffer[index+3]) && (buffer[index+4] == buffer[index+5]) && (buffer[index+6] && buffer[index+7]));
+                            
+                            unsigned short int max_pdata, max_ndata, max_pstrip_number, max_nstrip_number;
+                            max_ndata = 0;
+                            max_pdata = 0;
+                            max_pstrip_number = 0;
+                            max_nstrip_number = 0;
+                            
+                            if ( detector_data_exists ) {
+                                
+                                for(int asic_number = 0; asic_number < 4; asic_number++)
+                                {
+                                    index++;
+                                    // 0ASIC0 mask0
+                                    tmp = buffer[index];
+                                    
+                                    for(int position = 0; position < 16; position++){
+                                        if (asic_number == 0) {xmask[position] = getbits(tmp, position, 1);}
+                                        if (asic_number == 1) {xmask[position+64] = getbits(tmp, position, 1);}
+                                        if (asic_number == 2) {ymask[position] = getbits(tmp, position, 1);}
+                                        if (asic_number == 3) {ymask[position+64] = getbits(tmp, position, 1);}
+                                    }
+                                    // 0ASIC0 mask1
+                                    index++;
+                                    tmp = buffer[index];
+                                    
+                                    for(int position = 0; position < 16; position++){
+                                        if (asic_number == 0) {xmask[position+16] = getbits(tmp, position, 1);}
+                                        if (asic_number == 1) {xmask[position+64+16] = getbits(tmp, position, 1);}
+                                        if (asic_number == 2) {ymask[position+16] = getbits(tmp, position, 1);}
+                                        if (asic_number == 3) {ymask[position+64+16] = getbits(tmp, position, 1);}
+                                    }
+                                    // 0ASIC0 mask2tmp = buffer[index++];
+                                    index++;
+                                    tmp = buffer[index];
+                                    
+                                    for(int position = 0; position < 16; position++){
+                                        if (asic_number == 0) {xmask[position+32] = getbits(tmp, position, 1);}
+                                        if (asic_number == 1) {xmask[position+64+32] = getbits(tmp, position, 1);}
+                                        if (asic_number == 2) {ymask[position+32] = getbits(tmp, position, 1);}
+                                        if (asic_number == 3) {ymask[position+64+32] = getbits(tmp, position, 1);}
+                                    }
+                                    // 0ASIC0 mask3
+                                    index++;
+                                    tmp = buffer[index];
+                                    for(int position = 0; position < 16; position++){
+                                        if (asic_number == 0) {xmask[position+48] = getbits(tmp, position, 1);}
+                                        if (asic_number == 1) {xmask[position+64+48] = getbits(tmp, position, 1);}
+                                        if (asic_number == 2) {ymask[position+48] = getbits(tmp, position, 1);}
+                                        if (asic_number == 3) {ymask[position+64+48] = getbits(tmp, position, 1);}
+                                    }
+                                    
+                                    // 3 strips are read out, middle strip should be biggest one,
+                                    // data layout for strips is
+                                    // 6 bits - strip number
+                                    // 12 bits - strip data
+                                    // 4th strip is the common mode and takes up entire 16 bits
+                                    unsigned short int strip_data = 0;
+                                    unsigned short int h[4] = {buffer[index+1], buffer[index+2], buffer[index+3], buffer[index+4]};
+                                    for(int strip_num = 0; strip_num < 4; strip_num++)
+                                    {
+                                        index++;
+                                        
+                                        //printf("strip number%u\n", strip_number);
+                                        
+                                        if ((buffer[index] != 0xFFFF) && (buffer[index] != 0)){
+                                            // only keep the middle strip which is the max
+                                            if (strip_num == 1) {
+                                                strip_data = buffer[index] & 0x3FF;
+                                                strip_number = (buffer[index] >> 10) & 0x3F;
+                                                
+                                                // n side asic
+                                                //if (asic_number == 0) {ystrips[strip_number] = strip_data[strip_num];}
+                                                //if (asic_number == 1) {ystrips[strip_number + 63] = strip_data[strip_num];}
+                                                // p side asic
+                                                //if (asic_number == 2) {xstrips[63 - strip_number] = strip_data[strip_num];}
+                                                //if (asic_number == 3) {xstrips[127 - strip_number] = strip_data[strip_num];}
+                                                
+                                                if ((asic_number == 2) || (asic_number == 3)) {
+                                                    if (max_pdata < strip_data) {
+                                                        max_pdata = strip_data;
+                                                        if (asic_number == 2) {max_nstrip_number = 63 - strip_number;}
+                                                        if (asic_number == 3) {max_nstrip_number = 127 - strip_number;}
+                                                    }
+                                                }
+                                                if ((asic_number == 0) || (asic_number == 1)) {
+                                                    if (max_ndata < strip_data) {
+                                                        max_ndata = strip_data;
+                                                        if (asic_number == 0) {max_pstrip_number = strip_number;}
+                                                        if (asic_number == 1) {max_pstrip_number = strip_number+63;}
+                                                    }
+                                                }
+                                                
+                                                
+                                            } 
+                                            
+                                            if (strip_num == 3) {common_mode = buffer[index];}
+                                            //if (asic_number == 2) {common_mode[0] = buffer[index];}
+                                            //if (asic_number == 3) {common_mode[1] = buffer[index];}
+                                            
+                                            //printf("common mode: %u\n", common_mode);
+                                        }
+                                    }
+                                }
+                                
+                                // now add it to the image
+                                //if (max_pdata > gui->mainHistogramWindow->get_lowthreshold()) {
+                                //    gui->detectorsImageWindow->add_count_to_image(max_pstrip_number, max_nstrip_number, detector_num);
+                                //    gui->mainLightcurveWindow->add_count(detector_num);
+                                //    if (gui->minus_common_mode_checkbox->value() == 1) {
+                                //        gui->mainHistogramWindow->add_count(max_pdata - common_mode, detector_num);}
+                                //    else {
+                                //        gui->mainHistogramWindow->add_count(max_pdata, detector_num);
+                                //    }
+                            
+                               index++;
+                            } else {
+                                //printf("No detector %d data found\n", detector_num);
+                                //gui->app->no_trigger_count++;
+                                index+=33;
+                            }
+                            //printf("Detector %u:\n", detector_num);
+                        }
+                        
+                        //index++;
+                        //printf("checksum: %x\n", buffer[index]);
+                        //printf("index = %d, value = %x\n", index, buffer[index]);
+                        index++;
+                        //printf("index = %d, sync: %x\n", index, buffer[index]);
+                        index++;
+                        
+                        //Fl::lock();
+                        //gui->CommandCntOutput->value(command_count);
+                        //char text_buffer[50];
+                        //sprintf(text_buffer, "%x", command_value);
+                        //gui->CommandOutput->value(text_buffer);
+                        
+                        //gui->frameTime->value(time);
+                        //gui->int_timeOutput->value(time - (gui->app->formatter_start_time));
+                        
+                        //gui->HVOutput->value(high_voltage);
+                        //printf("voltage: %i status: %i", voltage, HVvoltage_status);
+                        //if (high_voltage_status == 1) {gui->HVOutput->textcolor(FL_RED);}
+                        //if (high_voltage_status == 2) {gui->HVOutput->textcolor(FL_BLUE);}
+                        //if (high_voltage_status == 4) {gui->HVOutput->textcolor(FL_BLACK); gui->HVOutput->redraw();}
+                        //gui->nEventsDone->value(gui->app->frame_display_count); 
+                        //gui->framenumOutput->value(frameNumber);
+                        //if (attenuator_actuating == 1) {gui->shutterstateOutput->value(1);}
+                        //Fl::unlock();
                         index += 254-index ;
                         
                         

@@ -98,8 +98,7 @@
         self.timeTextField.integerValue = [thisFrame.time integerValue];
         self.highVoltageTextField.integerValue = [thisFrame.high_voltage integerValue];
         self.commandNumberTextField.integerValue = [thisFrame.commnand_count integerValue];
-        self.commandValueTextField.integerValue = [thisFrame.command_value integerValue];
-        
+        self.commandValueTextField.stringValue = [NSString stringWithFormat:@"%x", [thisFrame.command_value intValue]];
         
         [self.foxsiView setNeedsDisplay:YES];
     }
