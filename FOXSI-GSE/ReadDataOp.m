@@ -8,6 +8,7 @@
 
 #import "ReadDataOp.h"
 #import "DataFrame.h"
+#import "DataHousekeeping.h"
 
 #define FRAME_SIZE_IN_SHORTINTS 1024
 #define FRAME_SIZE_IN_BYTES 2048
@@ -21,26 +22,41 @@
     @autoreleasepool {
         long len;
         bool good_read = false;
+        long lSize;
         FILE *formatterFile;
         unsigned short int buffer[FRAME_SIZE_IN_SHORTINTS];
         uint32_t frameNumber = 0;
         formatterFile = fopen("/Users/schriste/Desktop/FOXSI-2014/detector/data_launch_121102_114631.dat", "r");
 
+        // obtain file size:
+        fseek (formatterFile , 0 , SEEK_END);
+        lSize = ftell (formatterFile);
+        rewind(formatterFile);
+        
+        DataHousekeeping *thisHousekeeping = [[DataHousekeeping alloc] init];
+        DataFrame *thisFrame = [[DataFrame alloc] init];
+
         while (true) {
             len = fread((unsigned char *) buffer, 2048, 1, formatterFile);
+            
             // skip 10 frames
             fseek(formatterFile, 204800/4, SEEK_CUR);
             if (len == 1){
                 good_read = true;
             }
             // is this operation cancelled?
-            if (self.isCancelled){
+            if (self.isCancelled || ftell(formatterFile) >= lSize){
+                fclose(formatterFile);
                 NSLog(@"Stopping");
                 [[NSNotificationCenter defaultCenter]
                  postNotificationName:@"StoppedReadingData"
                  object:nil];
                 break;
             }
+            
+            unsigned short int temperature_monitors[NUMBER_OF_TEMPERATURE_SENSORS] = {0};
+            // order is 5V, -5V, 1.5V, -3.3V
+            unsigned short int voltage_monitors[NUMBER_OF_VOLTAGE_MONITORS] = {0};
             
             int index = 0;
             for( int frame_num = 0, index = 0; frame_num < 4; frame_num++)
@@ -69,12 +85,7 @@
                         bool attenuator_actuating = 0;
                         
                         unsigned short int frame_type;
-                        unsigned short int temperature_monitors[NUMBER_OF_TEMPERATURE_SENSORS] = {0};
-                        // order is 5V, -5V, 1.5V, -3.3V
-                        unsigned short int voltage_monitors[NUMBER_OF_VOLTAGE_MONITORS] = {0};
                         
-                        DataFrame *thisFrame = [[DataFrame alloc] init];
-
                         index++;
                         
                         time = (((unsigned long long) buffer[index] << 32) & 0xFFFF00000000);
@@ -227,6 +238,8 @@
 
                         index += 254-index ;
                         
+                        
+                        
                         [[NSNotificationCenter defaultCenter]
                          postNotificationName:@"DataReady"
                          object:thisFrame];
@@ -239,14 +252,19 @@
                 }
             }
             
+    
             for(int temp_sensor_num = 0; temp_sensor_num < NUMBER_OF_TEMPERATURE_SENSORS; temp_sensor_num++)
             {
-                [thisFrame addTemperature:temperature_monitors[temp_sensor_num] atIndex:temp_sensor_num];
+                [thisHousekeeping addTemperature:temperature_monitors[temp_sensor_num] atIndex:temp_sensor_num];
             }
             
             for (int volt_monitor_number = 0; volt_monitor_number < NUMBER_OF_VOLTAGE_MONITORS; volt_monitor_number++) {
-                [thisFrame addVoltage:voltage_monitors[volt_monitor_number] atIndex:volt_monitor_number];
+                [thisHousekeeping addVoltage:voltage_monitors[volt_monitor_number] atIndex:volt_monitor_number];
             }
+            
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"HousekeepingReady"
+             object:thisHousekeeping];
         }
     }
 }

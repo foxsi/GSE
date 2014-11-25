@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ReadDataOp.h"
 #import "DataFrame.h"
+#import "DataHousekeeping.h"
 #import "NumberInRangeFormatter.h"
 
 @implementation ViewController
@@ -31,6 +32,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(StoppedReadingDataNotification:)
                                                  name:@"StoppedReadingData"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveHousekeepingNotification:)
+                                                 name:@"HousekeepingReady"
                                                object:nil];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateCurrentTime) userInfo:nil repeats:YES];
@@ -95,25 +100,32 @@
         self.commandNumberTextField.integerValue = [thisFrame.commnand_count integerValue];
         self.commandValueTextField.integerValue = [thisFrame.command_value integerValue];
         
-        self.TemperatureTextField_tref.floatValue = [[thisFrame.temperatures objectAtIndex:0] floatValue];
-        self.TemperatureTextField_pwr.floatValue = [[thisFrame.temperatures objectAtIndex:1] floatValue];
-        self.TemperatureTextField_fact.floatValue = [[thisFrame.temperatures objectAtIndex:2] floatValue];
-        self.TemperatureTextField_fclk.floatValue = [[thisFrame.temperatures objectAtIndex:3] floatValue];
-        self.TemperatureTextField_aact.floatValue = [[thisFrame.temperatures objectAtIndex:4] floatValue];
-        self.TemperatureTextField_abrd.floatValue = [[thisFrame.temperatures objectAtIndex:5] floatValue];
-        self.TemperatureTextField_det6.floatValue = [[thisFrame.temperatures objectAtIndex:6] floatValue];
-        self.TemperatureTextField_det3.floatValue = [[thisFrame.temperatures objectAtIndex:7] floatValue];
-        self.TemperatureTextField_det4.floatValue = [[thisFrame.temperatures objectAtIndex:8] floatValue];
-        self.TemperatureTextField_det1.floatValue = [[thisFrame.temperatures objectAtIndex:9] floatValue];
-        self.TemperatureTextField_dplan.floatValue = [[thisFrame.temperatures objectAtIndex:10] floatValue];
-        self.TemperatureTextField_det0.floatValue = [[thisFrame.temperatures objectAtIndex:11] floatValue];
         
-        self.VoltsTextField_five.floatValue = [[thisFrame.voltages objectAtIndex:0] floatValue];
-        self.VoltsTextField_mfive.floatValue = [[thisFrame.voltages objectAtIndex:1] floatValue];
-        self.VoltsTextField_onefive.floatValue = [[thisFrame.voltages objectAtIndex:2] floatValue];
-        self.VoltsTextField_threethree.floatValue = [[thisFrame.voltages objectAtIndex:3] floatValue];
-
         [self.foxsiView setNeedsDisplay:YES];
+    }
+}
+
+- (void) receiveHousekeepingNotification:(NSNotification *) notification
+{
+    if ([[notification name] isEqualToString:@"HousekeepingReady"]){
+        DataHousekeeping *thisHouse = [notification object];
+    self.TemperatureTextField_tref.floatValue = [[thisHouse.temperatures objectAtIndex:0] floatValue];
+    self.TemperatureTextField_pwr.floatValue = [[thisHouse.temperatures objectAtIndex:1] floatValue];
+    self.TemperatureTextField_fact.floatValue = [[thisHouse.temperatures objectAtIndex:2] floatValue];
+    self.TemperatureTextField_fclk.floatValue = [[thisHouse.temperatures objectAtIndex:3] floatValue];
+    self.TemperatureTextField_aact.floatValue = [[thisHouse.temperatures objectAtIndex:4] floatValue];
+    self.TemperatureTextField_abrd.floatValue = [[thisHouse.temperatures objectAtIndex:5] floatValue];
+    self.TemperatureTextField_det6.floatValue = [[thisHouse.temperatures objectAtIndex:6] floatValue];
+    self.TemperatureTextField_det3.floatValue = [[thisHouse.temperatures objectAtIndex:7] floatValue];
+    self.TemperatureTextField_det4.floatValue = [[thisHouse.temperatures objectAtIndex:8] floatValue];
+    self.TemperatureTextField_det1.floatValue = [[thisHouse.temperatures objectAtIndex:9] floatValue];
+    self.TemperatureTextField_dplan.floatValue = [[thisHouse.temperatures objectAtIndex:10] floatValue];
+    self.TemperatureTextField_det0.floatValue = [[thisHouse.temperatures objectAtIndex:11] floatValue];
+    
+    self.VoltsTextField_five.floatValue = [[thisHouse.voltages objectAtIndex:0] floatValue];
+    self.VoltsTextField_mfive.floatValue = [[thisHouse.voltages objectAtIndex:1] floatValue];
+    self.VoltsTextField_onefive.floatValue = [[thisHouse.voltages objectAtIndex:2] floatValue];
+    self.VoltsTextField_threethree.floatValue = [[thisHouse.voltages objectAtIndex:3] floatValue];
     }
 }
 

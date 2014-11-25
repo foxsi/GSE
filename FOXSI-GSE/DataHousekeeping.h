@@ -10,4 +10,10 @@
 
 @interface DataHousekeeping : NSObject
 
+@property (strong) NSMutableArray *voltages;
+@property (strong) NSMutableArray *temperatures;
+
+-(void) addTemperature: (unsigned short int)temp atIndex: (unsigned short int)i;
+-(void) addVoltage: (unsigned short int)v atIndex: (unsigned short int)i;
+
 @end
