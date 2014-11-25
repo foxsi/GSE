@@ -686,7 +686,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Temperatures" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="2iZ-v4-gNL">
-                                <rect key="frame" x="568" y="698" width="296" height="150"/>
+                                <rect key="frame" x="568" y="729" width="296" height="150"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="294" height="134"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -901,7 +901,7 @@
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Control" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="F9v-C4-0or">
-                                <rect key="frame" x="17" y="698" width="243" height="150"/>
+                                <rect key="frame" x="17" y="729" width="243" height="150"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="241" height="134"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -969,7 +969,7 @@ Gw
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Voltages" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="OAv-Ha-Hv4">
-                                <rect key="frame" x="866" y="698" width="110" height="150"/>
+                                <rect key="frame" x="866" y="729" width="110" height="150"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="108" height="134"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1048,7 +1048,7 @@ Gw
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Telemetry" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="sAJ-3b-BLI">
-                                <rect key="frame" x="262" y="698" width="304" height="150"/>
+                                <rect key="frame" x="262" y="729" width="304" height="150"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="302" height="134"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1161,7 +1161,7 @@ Gw
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fo4-I0-jmw">
-                                <rect key="frame" x="855" y="867" width="120" height="17"/>
+                                <rect key="frame" x="855" y="887" width="120" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Label" id="awU-dw-akA">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1169,7 +1169,7 @@ Gw
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IW3-Px-Qsf">
-                                <rect key="frame" x="731" y="867" width="120" height="17"/>
+                                <rect key="frame" x="729" y="887" width="120" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Current Time" id="Aog-hV-eBv">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1177,7 +1177,7 @@ Gw
                                 </textFieldCell>
                             </textField>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="FOXSI" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="cki-ET-WmE">
-                                <rect key="frame" x="12" y="289" width="554" height="409"/>
+                                <rect key="frame" x="12" y="316" width="554" height="409"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="552" height="393"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1274,22 +1274,8 @@ Gw
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
-                            <box autoresizesSubviews="NO" fixedFrame="YES" title="Detector Image" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="atc-4N-6NE">
-                                <rect key="frame" x="12" y="16" width="312" height="269"/>
-                                <view key="contentView">
-                                    <rect key="frame" x="1" y="1" width="310" height="253"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <openGLView fixedFrame="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FE5-3L-irR" customClass="DetectorView">
-                                            <rect key="frame" x="18" y="14" width="274" height="229"/>
-                                        </openGLView>
-                                    </subviews>
-                                </view>
-                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </box>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Spectrum" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="2Bz-jL-lLl">
-                                <rect key="frame" x="568" y="424" width="408" height="274"/>
+                                <rect key="frame" x="568" y="451" width="408" height="274"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="406" height="258"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1375,7 +1361,7 @@ Gw
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Lightcurve" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="ai9-gd-3wS">
-                                <rect key="frame" x="568" y="289" width="408" height="131"/>
+                                <rect key="frame" x="568" y="316" width="408" height="131"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="406" height="115"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1405,7 +1391,7 @@ Gw
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Detector Spectra" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="VAD-Mf-skj">
-                                <rect key="frame" x="326" y="16" width="650" height="269"/>
+                                <rect key="frame" x="326" y="43" width="650" height="269"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="648" height="253"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1418,22 +1404,36 @@ Gw
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPe-sa-a2Z">
-                                <rect key="frame" x="20" y="867" width="49" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="version" id="D6Q-x1-HG7">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gA5-sD-d1F">
-                                <rect key="frame" x="73" y="867" width="239" height="17"/>
+                                <rect key="frame" x="71" y="887" width="239" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="vcR-L3-mjw">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPe-sa-a2Z">
+                                <rect key="frame" x="18" y="887" width="49" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="version" id="D6Q-x1-HG7">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <box autoresizesSubviews="NO" fixedFrame="YES" title="Detector Image" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="atc-4N-6NE">
+                                <rect key="frame" x="12" y="43" width="312" height="269"/>
+                                <view key="contentView">
+                                    <rect key="frame" x="1" y="1" width="310" height="253"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <openGLView fixedFrame="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FE5-3L-irR" customClass="DetectorView">
+                                            <rect key="frame" x="18" y="23" width="220" height="220"/>
+                                        </openGLView>
+                                    </subviews>
+                                </view>
+                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </box>
                         </subviews>
                     </view>
                     <connections>
