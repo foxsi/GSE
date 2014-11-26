@@ -27,11 +27,11 @@
 -(void) addCount: (int)x :(int)y :(int)channel{
     
     if ((x < XSTRIPS) && (y < YSTRIPS) && (x >= 0) && (y >= 0)){
-        image[x * XSTRIPS * y]++;
+        image[x + XSTRIPS * y]++;
         spectrum[channel]++;
         lightcurve[0]++;
-        if (self.imageMaximum < image[x * XSTRIPS * y]) {
-            self.imageMaximum = image[x * XSTRIPS * y];
+        if (self.imageMaximum < image[x + XSTRIPS * y]) {
+            self.imageMaximum = image[x + XSTRIPS * y];
         }
     }
 

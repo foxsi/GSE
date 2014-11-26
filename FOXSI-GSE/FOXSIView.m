@@ -22,7 +22,7 @@
 @interface FOXSIView ()
 @property (nonatomic, strong) NSArray *detector_angles;
 -(void) drawText: (NSPoint) origin :(NSString *)text;
--(void) drawCircle: (float) cx :(float) cy :(float) r;
+-(void) drawCircle: (NSPoint) origin :(float) r;
 @end
 
 @implementation FOXSIView
@@ -154,15 +154,15 @@
         
         // border at 3 arcmin
         float border_factor = 3.0/16.5*0.5;
-        [self drawCircle:0 :0 :border_factor*XSTRIPS];
+        [self drawCircle: NSMakePoint(0, 0) :border_factor*XSTRIPS];
         
         // border at 6 arcmin
         border_factor = 6.0/16.5*0.5;
-        [self drawCircle:0 :0 :border_factor*XSTRIPS];
+        [self drawCircle: NSMakePoint(0, 0) :border_factor*XSTRIPS];
         
         // border at 9 arcmin
         border_factor = 9.0/16.5*0.5;
-        [self drawCircle:0 :0 :border_factor*XSTRIPS];
+        [self drawCircle: NSMakePoint(0, 0) :border_factor*XSTRIPS];
         
         //glDisable(GL_LINE_STIPPLE);
     }
@@ -224,7 +224,7 @@
     }
 }
 
--(void) drawCircle: (float) cx :(float) cy :(float) r{
+-(void) drawCircle: (NSPoint) origin :(float) r{
     // code courtesy of SiegeLord's Abode
     // http://slabode.exofire.net/circle_draw.shtml
     float theta = 2 * 3.1415926 / (float)NUM_CIRCLE_SEGMENTS;
@@ -238,7 +238,7 @@
     glBegin(GL_LINE_LOOP);
     for(int ii = 0; ii < NUM_CIRCLE_SEGMENTS; ii++)
     {
-        glVertex2f(x + cx, y + cy);//output vertex
+        glVertex2f(x + origin.x, y + origin.y);//output vertex
         
         //apply the rotation matrix
         t = x;

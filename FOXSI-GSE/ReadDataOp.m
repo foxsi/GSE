@@ -42,7 +42,8 @@
             len = fread((unsigned char *) buffer, 2048, 1, formatterFile);
             
             // skip 10 frames
-            fseek(formatterFile, 204800/4, SEEK_CUR);
+            //fseek(formatterFile, 204800/4, SEEK_CUR)
+
             if (len == 1){
                 good_read = true;
             }
@@ -411,9 +412,7 @@
                         //gui->framenumOutput->value(frameNumber);
                         //if (attenuator_actuating == 1) {gui->shutterstateOutput->value(1);}
                         //Fl::unlock();
-                        index += 254-index ;
-                        
-                        
+                        //index += 254-index ;
                         
                         [[NSNotificationCenter defaultCenter]
                          postNotificationName:@"DataReady"
