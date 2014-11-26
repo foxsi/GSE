@@ -23,6 +23,7 @@ float voltage_convert_15v(unsigned short int value);
 @synthesize time = _time;
 @synthesize commnand_count = _commnand_count;
 @synthesize command_value = _command_value;
+@synthesize data = _data;
 
 -(id)init: (unsigned short int)i {
     self = [super init]; // call our super’s designated initializer

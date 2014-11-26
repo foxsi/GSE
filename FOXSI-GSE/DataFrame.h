@@ -15,6 +15,7 @@
 @property (strong) NSNumber *commnand_count;
 @property (strong) NSNumber *command_value;
 @property (strong) NSNumber *high_voltage;
+@property (strong) NSArray *data;
 @property int type;
 
 @end

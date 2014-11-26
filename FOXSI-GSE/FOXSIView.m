@@ -17,10 +17,12 @@
 #define YBORDER 5
 #define NUM_DETECTORS 7
 #define BORDER_BUFFER 35
+#define NUM_CIRCLE_SEGMENTS   30    // the number of line segments to use for circles
 
 @interface FOXSIView ()
 @property (nonatomic, strong) NSArray *detector_angles;
 -(void) drawText: (NSPoint) origin :(NSString *)text;
+-(void) drawCircle: (float) cx :(float) cy :(float) r;
 @end
 
 @implementation FOXSIView
@@ -148,36 +150,21 @@
         // draw inner border for center of FOV
         glColor3f(0.0, 0.5, 0.0);
         glLineStipple(1, 0x3F07);
-        glEnable(GL_LINE_STIPPLE);
+        //glEnable(GL_LINE_STIPPLE);
         
         // border at 3 arcmin
         float border_factor = 3.0/16.5*0.5;
-        glBegin(GL_LINE_LOOP);
-        glVertex2f(- border_factor*XSTRIPS, - border_factor*XSTRIPS);
-        glVertex2f(- border_factor*XSTRIPS + 2*border_factor*XSTRIPS, - border_factor*YSTRIPS);
-        glVertex2f(- border_factor*XSTRIPS + 2*border_factor*XSTRIPS,  - border_factor*YSTRIPS + 2*border_factor*YSTRIPS);
-        glVertex2f(- border_factor*XSTRIPS, - border_factor*YSTRIPS + 2*border_factor*YSTRIPS);
-        glEnd();
+        [self drawCircle:0 :0 :border_factor*XSTRIPS];
         
-        // border at 3 arcmin
+        // border at 6 arcmin
         border_factor = 6.0/16.5*0.5;
-        glBegin(GL_LINE_LOOP);
-        glVertex2f(- border_factor*XSTRIPS, - border_factor*XSTRIPS);
-        glVertex2f(- border_factor*XSTRIPS + 2*border_factor*XSTRIPS, - border_factor*YSTRIPS);
-        glVertex2f(- border_factor*XSTRIPS + 2*border_factor*XSTRIPS,  - border_factor*YSTRIPS + 2*border_factor*YSTRIPS);
-        glVertex2f(- border_factor*XSTRIPS, - border_factor*YSTRIPS + 2*border_factor*YSTRIPS);
-        glEnd();
+        [self drawCircle:0 :0 :border_factor*XSTRIPS];
         
-        // border at 3 arcmin
+        // border at 9 arcmin
         border_factor = 9.0/16.5*0.5;
-        glBegin(GL_LINE_LOOP);
-        glVertex2f(- border_factor*XSTRIPS, - border_factor*XSTRIPS);
-        glVertex2f(- border_factor*XSTRIPS + 2*border_factor*XSTRIPS, - border_factor*YSTRIPS);
-        glVertex2f(- border_factor*XSTRIPS + 2*border_factor*XSTRIPS,  - border_factor*YSTRIPS + 2*border_factor*YSTRIPS);
-        glVertex2f(- border_factor*XSTRIPS, - border_factor*YSTRIPS + 2*border_factor*YSTRIPS);
-        glEnd();
+        [self drawCircle:0 :0 :border_factor*XSTRIPS];
         
-        glDisable(GL_LINE_STIPPLE);
+        //glDisable(GL_LINE_STIPPLE);
     }
     glPopMatrix();
     glFinish();
@@ -233,8 +220,32 @@
 {
     glRasterPos2f(origin.x, origin.y);
     for (int i = 0; i < [text length]; i++) {
-        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, [text characterAtIndex:i]);
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, [text characterAtIndex:i]);
     }
+}
+
+-(void) drawCircle: (float) cx :(float) cy :(float) r{
+    // code courtesy of SiegeLord's Abode
+    // http://slabode.exofire.net/circle_draw.shtml
+    float theta = 2 * 3.1415926 / (float)NUM_CIRCLE_SEGMENTS;
+    float c = cosf(theta);//precalculate the sine and cosine
+    float s = sinf(theta);
+    float t;
+    
+    float x = r;//we start at angle = 0
+    float y = 0;
+    
+    glBegin(GL_LINE_LOOP);
+    for(int ii = 0; ii < NUM_CIRCLE_SEGMENTS; ii++)
+    {
+        glVertex2f(x + cx, y + cy);//output vertex
+        
+        //apply the rotation matrix
+        t = x;
+        x = c * x - s * y;
+        y = s * t + c * y;
+    }
+    glEnd();
 }
 
 

@@ -359,6 +359,13 @@
                                     }
                                 }
                                 
+                                thisFrame.data = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:max_pstrip_number],
+                                                  [NSNumber numberWithInt:max_nstrip_number],
+                                                  [NSNumber numberWithInt:detector_num],
+                                                  [NSNumber numberWithInt:max_pdata],
+                                                  [NSNumber numberWithInt:common_mode],
+                                                  nil];
+                                
                                 // now add it to the image
                                 //if (max_pdata > gui->mainHistogramWindow->get_lowthreshold()) {
                                 //    gui->detectorsImageWindow->add_count_to_image(max_pstrip_number, max_nstrip_number, detector_num);
@@ -368,8 +375,9 @@
                                 //    else {
                                 //        gui->mainHistogramWindow->add_count(max_pdata, detector_num);
                                 //    }
-                            
-                               index++;
+                                
+                                
+                                index++;
                             } else {
                                 //printf("No detector %d data found\n", detector_num);
                                 //gui->app->no_trigger_count++;

@@ -120,6 +120,16 @@
         self.commandNumberTextField.integerValue = [thisFrame.commnand_count integerValue];
         self.commandValueTextField.stringValue = [NSString stringWithFormat:@"%x", [thisFrame.command_value intValue]];
         
+        // check to see if detector data exists
+        if (thisFrame.data) {
+            int x = [[thisFrame.data objectAtIndex:0] intValue];
+            int y = [[thisFrame.data objectAtIndex:1] intValue];
+            int detector_number = [[thisFrame.data objectAtIndex:2] intValue];
+            int channel = [[thisFrame.data objectAtIndex:3] intValue];
+            //int common_mode = [[thisFrame.data objectAtIndex:4] intValue];
+            [[self.detectors objectAtIndex:detector_number ] addCount:x :y :channel];
+        }
+        
         [self.foxsiView setNeedsDisplay:YES];
     }
 }

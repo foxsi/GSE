@@ -13,6 +13,10 @@
 #define YBORDER 5
 #define XSTRIPS 128
 #define YSTRIPS 128
+#define NUM_CIRCLE_SEGMENTS   30    // the number of line segments to use for circles
+
+@interface DetectorView()
+@end
 
 @implementation DetectorView
 
@@ -130,6 +134,5 @@
     
     return pf;
 }
-
 
 @end

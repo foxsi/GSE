@@ -10,9 +10,13 @@
 
 #define XSTRIPS 128
 #define YSTRIPS 128
+#define MAX_CHANNEL 1024
+#define MAX_TIME 1024
 
 @interface Detector : NSObject{
-    unsigned long image[XSTRIPS][YSTRIPS];
+    unsigned long image[XSTRIPS*YSTRIPS];
+    unsigned long spectrum[MAX_CHANNEL];
+    unsigned long lightcurve[MAX_TIME];
 }
 
 
@@ -22,5 +26,13 @@
 @property (nonatomic) unsigned long imageMaximum;
 
 -(void) addCount: (int)x :(int)y :(int)channel;
+-(void) flushImage;
+-(void) flushSpectrum;
+-(void) flushLightcurve;
+-(void) flushAll;
+-(unsigned long  *) image;
+-(unsigned long  *) spectrum;
+-(unsigned long  *) lightcurve;
+
 
 @end
