@@ -29,7 +29,7 @@
         unsigned short int buffer[FRAME_SIZE_IN_SHORTINTS];
         uint32_t frameNumber = 0;
         formatterFile = fopen("/Users/schriste/Desktop/FOXSI-2014/detector/data_launch_121102_114631.dat", "r");
-
+        
         // obtain file size:
         fseek (formatterFile , 0 , SEEK_END);
         lSize = ftell (formatterFile);
@@ -37,13 +37,13 @@
         
         DataHousekeeping *thisHousekeeping = [[DataHousekeeping alloc] init];
         DataFrame *thisFrame = [[DataFrame alloc] init];
-
+        
         while (true) {
             len = fread((unsigned char *) buffer, 2048, 1, formatterFile);
             
             // skip 10 frames
-            //fseek(formatterFile, 204800/4, SEEK_CUR)
-
+            // fseek(formatterFile, 204800/4, SEEK_CUR)
+            
             if (len == 1){
                 good_read = true;
             }
@@ -72,13 +72,9 @@
                     for( int word_number = 0; word_number < 256; word_number++ ){good_read ^= buffer[word_number];}
                     
                     if( good_read == true ){
-                        // pass off for parsing to dataframe object
-                        
-                        
                         long long time;
                         unsigned short int command_count;
                         uint32_t command_value;
-                        
                         unsigned short int tmp;
                         unsigned short int high_voltage_status;
                         unsigned short int high_voltage;
@@ -87,15 +83,10 @@
                         unsigned short int formatter_status;
                         bool attenuator_actuating = 0;
                         
-                        unsigned short int frame_type;
-                        
                         index++;
-                        
                         time = (((unsigned long long) buffer[index] << 32) & 0xFFFF00000000);
                         index++;
                         time |= ((unsigned long long) (buffer[index] << 16) & 0xFFFF0000);
-                        
-                        
                         index++;
                         time |= (unsigned long long) buffer[index];
                         time /= 10e6;
@@ -106,16 +97,13 @@
                         //index++;
                         frameNumber = ((uint32_t)(buffer[index] << 16) & 0xFFFF0000) | buffer[index+1];
                         thisFrame.number = [NSNumber numberWithLong:frameNumber];
-                        
-                        frame_type = buffer[index+1] & 0x3;
-                        
-                        thisFrame.type = frame_type;
+                        thisFrame.type = buffer[index+1] & 0x3;
                         
                         index++;
                         index++;
                         
                         // Housekeeping 0
-                        switch (frame_type) {
+                        switch (thisFrame.type) {
                             case 0:
                                 // temperature reference
                                 temperature_monitors[0] = buffer[index++];
@@ -144,10 +132,10 @@
                         thisFrame.command_value = [NSNumber numberWithInt:command_value];
                         index++;
                         index++;
-
+                        
                         // Housekeeping 1
                         //printf("%i, housekeeping 1: %x\n", index, buffer[index]);
-                        switch (frame_type) {
+                        switch (thisFrame.type) {
                             case 0:
                                 // 5 V monitor
                                 voltage_monitors[0] = buffer[index++];
@@ -178,10 +166,11 @@
                         high_voltage = ((buffer[index] >> 4) & 0xFFF)/8.0;
                         index++;
                         thisFrame.high_voltage = [NSNumber numberWithInt:high_voltage];
+                        thisFrame.high_voltage_status = [NSNumber numberWithInt:high_voltage_status];
                         
                         // Housekeeping 2
                         //printf("%i, housekeeping 2: %x\n", index, buffer[index]);
-                        switch (frame_type) {
+                        switch (thisFrame.type) {
                             case 0:
                                 // -5 V monitor
                                 voltage_monitors[1] = buffer[index++];
@@ -201,14 +190,14 @@
                                 break;
                         }
                         
-                        //printf("Status 0: %x\n", buffer[index++]);
+                        // Status 0
                         index++;
+                        // Status 1
                         index++;
+                        // Status 2
                         index++;
-                        //printf("Status 1: %x\n", buffer[index++]);
-                        //printf("Status 2: %x\n", buffer[index++]);
-
-                        switch (frame_type) {
+                        
+                        switch (thisFrame.type) {
                             case 0:
                                 // 3.3 V monitor
                                 voltage_monitors[3] = buffer[index++];
@@ -349,7 +338,7 @@
                                                 }
                                                 
                                                 
-                                            } 
+                                            }
                                             
                                             if (strip_num == 3) {common_mode = buffer[index];}
                                             //if (asic_number == 2) {common_mode[0] = buffer[index];}
@@ -408,7 +397,7 @@
                         //if (high_voltage_status == 1) {gui->HVOutput->textcolor(FL_RED);}
                         //if (high_voltage_status == 2) {gui->HVOutput->textcolor(FL_BLUE);}
                         //if (high_voltage_status == 4) {gui->HVOutput->textcolor(FL_BLACK); gui->HVOutput->redraw();}
-                        //gui->nEventsDone->value(gui->app->frame_display_count); 
+                        //gui->nEventsDone->value(gui->app->frame_display_count);
                         //gui->framenumOutput->value(frameNumber);
                         //if (attenuator_actuating == 1) {gui->shutterstateOutput->value(1);}
                         //Fl::unlock();
@@ -426,7 +415,6 @@
                 }
             }
             
-    
             for(int temp_sensor_num = 0; temp_sensor_num < NUMBER_OF_TEMPERATURE_SENSORS; temp_sensor_num++)
             {
                 [thisHousekeeping addTemperature:temperature_monitors[temp_sensor_num] atIndex:temp_sensor_num];
