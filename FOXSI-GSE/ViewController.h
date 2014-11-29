@@ -60,6 +60,9 @@
 - (IBAction)StartAction:(NSButton *)sender;
 - (IBAction)CancelAction:(NSButton *)sender;
 - (IBAction)TestAction:(NSButton *)sender;
+- (IBAction)FlushImageAction:(NSButton *)sender;
+- (IBAction)FlushSpecAction:(NSButton *)sender;
+- (IBAction)FlushLightcurveAction:(NSButton *)sender;
 
 @property (weak) IBOutlet FOXSIView *foxsiView;
 

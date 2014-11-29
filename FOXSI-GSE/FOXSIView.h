@@ -10,4 +10,6 @@
 
 @interface FOXSIView : NSOpenGLView
 
+@property (strong) NSArray *data;
+
 @end

@@ -44,8 +44,12 @@
     
     NumberInRangeFormatter *formatter;
     formatter = [self.highVoltageTextField formatter];
-    formatter.maximum = 100;
-    formatter.minimum = 10;
+    formatter.maximum = 250;
+    formatter.minimum = -10;
+    
+    formatter = [self.TemperatureTextField_aact formatter];
+    formatter.maximum = 20;
+    formatter.minimum = -20;
     
     NSString *appVersionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleSignature"];
     self.versionTextField.stringValue = appVersionString;
@@ -67,6 +71,7 @@
     
     self.detectors = [NSArray arrayWithObjects:detector0, detector1, detector2,
                       detector3, detector4, detector5, detector6, nil];
+    self.foxsiView.data = self.detectors;
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -90,19 +95,44 @@
 }
 
 - (IBAction)TestAction:(NSButton *)sender {
-    NSOpenPanel* panel = [NSOpenPanel openPanel];
+    //NSOpenPanel* panel = [NSOpenPanel openPanel];
     
     // This method displays the panel and returns immediately.
     // The completion handler is called when the user selects an
     // item or cancels the panel.
-    [panel beginWithCompletionHandler:^(NSInteger result){
-        if (result == NSFileHandlingPanelOKButton) {
-            NSURL*  theDoc = [[panel URLs] objectAtIndex:0];
-            
-            // Open  the document.
-        }
+//    [panel beginWithCompletionHandler:^(NSInteger result){
+//        if (result == NSFileHandlingPanelOKButton) {
+//            NSURL*  theDoc = [[panel URLs] objectAtIndex:0];
+//            
+//            // Open  the document.
+//        }
+//        
+//    }];
+    UInt16 values[10];
+    UInt16 temp = 200;
+    for (int i = 0; i<10; i++) {
+        values[i] = i;
+    }
+
+    NSMutableData *data = [[NSMutableData alloc] initWithBytes:values length:20];
+    [data replaceBytesInRange:NSMakeRange(0, 2) withBytes:&temp];
+    for (int i = 0; i<10; i++) {
+        [data getBytes:&temp range:NSMakeRange(i*2, 2)];
         
-    }];
+        NSLog(@"%i", temp);
+    }
+}
+
+- (IBAction)FlushImageAction:(NSButton *)sender {
+    for (Detector *thisDetector in self.detectors) {
+        [thisDetector flushImage];
+    }
+}
+
+- (IBAction)FlushSpecAction:(NSButton *)sender {
+}
+
+- (IBAction)FlushLightcurveAction:(NSButton *)sender {
 }
 
 - (void) receiveDataReadyNotification:(NSNotification *) notification

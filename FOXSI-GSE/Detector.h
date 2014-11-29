@@ -13,26 +13,18 @@
 #define MAX_CHANNEL 1024
 #define MAX_TIME 1024
 
-@interface Detector : NSObject{
-    unsigned long image[XSTRIPS*YSTRIPS];
-    unsigned long spectrum[MAX_CHANNEL];
-    unsigned long lightcurve[MAX_TIME];
-}
-
+@interface Detector : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic) int xpixels;
 @property (nonatomic) int ypixels;
 @property (nonatomic) unsigned long imageMaximum;
+@property (strong) NSMutableData *image;
 
 -(void) addCount: (int)x :(int)y :(int)channel;
 -(void) flushImage;
 -(void) flushSpectrum;
 -(void) flushLightcurve;
 -(void) flushAll;
--(unsigned long  *) image;
--(unsigned long  *) spectrum;
--(unsigned long  *) lightcurve;
-
 
 @end

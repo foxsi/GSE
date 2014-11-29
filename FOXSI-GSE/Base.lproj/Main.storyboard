@@ -963,6 +963,36 @@ Gw
                                                 <action selector="TestAction:" target="XfG-lQ-9wD" id="6VD-BB-0kn"/>
                                             </connections>
                                         </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SR0-jn-Oqf">
+                                            <rect key="frame" x="12" y="7" width="78" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Image" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vU7-T6-htS">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="FlushImageAction:" target="XfG-lQ-9wD" id="tQI-hL-uyd"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I70-us-cEH">
+                                            <rect key="frame" x="150" y="7" width="91" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Lightcur" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JHp-8Z-jGK">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="FlushLightcurveAction:" target="XfG-lQ-9wD" id="iQa-VF-C06"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zix-SC-wEs">
+                                            <rect key="frame" x="84" y="7" width="72" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Spec" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nbP-ga-qr9">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="FlushSpecAction:" target="XfG-lQ-9wD" id="iaG-nb-PEf"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
