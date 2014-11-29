@@ -10,6 +10,8 @@
 
 #define XSTRIPS 128
 #define YSTRIPS 128
+#define MAX_CHANNEL 1024
+#define MAX_TIME 1024
 
 @implementation Detector
 
@@ -24,6 +26,8 @@
         self.imageMaximum = 0;
         UInt8 tmp[XSTRIPS*YSTRIPS] = {0};
         self.image = [[NSMutableData alloc] initWithBytes:tmp length:XSTRIPS*YSTRIPS];
+        NSTimeInterval times[XSTRIPS*YSTRIPS] = {[NSDate timeIntervalSinceReferenceDate]};
+        self.imageTime = [[NSMutableData alloc] initWithBytes:times length:XSTRIPS*YSTRIPS*sizeof([NSDate timeIntervalSinceReferenceDate])];
     }
     return self;
 }
@@ -32,9 +36,12 @@
     
     if ((x < XSTRIPS) && (y < YSTRIPS) && (x >= 0) && (y >= 0)){
         UInt8 currentValue;
+        NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
         [self.image getBytes:&currentValue range:NSMakeRange(x + XSTRIPS * y, 1)];
         currentValue++;
         [self.image replaceBytesInRange:NSMakeRange(x + XSTRIPS * y, 1) withBytes:&currentValue];
+        [self.imageTime replaceBytesInRange:NSMakeRange(x + XSTRIPS * y, sizeof(currentTime)) withBytes:&currentTime];
+        
         //self.image[x + XSTRIPS * y]++;
         //spectrum[channel]++;
         //lightcurve[0]++;

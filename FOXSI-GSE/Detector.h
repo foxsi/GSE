@@ -8,11 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define XSTRIPS 128
-#define YSTRIPS 128
-#define MAX_CHANNEL 1024
-#define MAX_TIME 1024
-
 @interface Detector : NSObject
 
 @property (nonatomic, strong) NSString *name;
@@ -20,6 +15,9 @@
 @property (nonatomic) int ypixels;
 @property (nonatomic) unsigned long imageMaximum;
 @property (strong) NSMutableData *image;
+@property (strong) NSMutableData *spectrum;
+@property (strong) NSMutableData *lightCurve;
+@property (strong) NSMutableData *imageTime;
 
 -(void) addCount: (int)x :(int)y :(int)channel;
 -(void) flushImage;

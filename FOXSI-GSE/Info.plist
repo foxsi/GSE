@@ -19,9 +19,9 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
-	<string>9fbad72 2014-11-26 14:15:32 -0500</string>
+	<string>4642473 2014-11-28 23:01:25 -0500</string>
 	<key>CFBundleVersion</key>
-	<string>68</string>
+	<string>69</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSHumanReadableCopyright</key>
