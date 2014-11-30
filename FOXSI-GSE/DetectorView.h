@@ -13,6 +13,6 @@
 @property (strong) NSArray *data;
 @property int imageMax;
 @property int pixelHalfLife;
-@property int detectorToDisplay;
+@property NSInteger detectorToDisplay;
 
 @end

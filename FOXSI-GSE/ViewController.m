@@ -230,5 +230,6 @@
 }
 
 - (IBAction)updateDetectorToDisplayAction:(NSSegmentedControl *)sender {
+    self.detectorView.detectorToDisplay = [sender selectedSegment];
 }
 @end
