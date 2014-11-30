@@ -17,8 +17,8 @@
 
 @synthesize operationQueue = _operationQueue;
 
-@synthesize sliderAmount;
-@synthesize halfLifeValue;
+@synthesize imageMaximum;
+@synthesize imagePixelHalfLife;
 @synthesize detectors;
 
 - (void)viewDidLoad {
@@ -73,12 +73,12 @@
                       detector3, detector4, detector5, detector6, nil];
     self.foxsiView.data = self.detectors;
     self.detectorView.data = self.detectors;
-    self.sliderAmount = 0;
-    self.halfLifeValue = 1;
-    self.foxsiView.pixelHalfLife = self.halfLifeValue;
-    self.detectorView.imageMax = self.sliderAmount;
-    self.foxsiView.imageMax = self.sliderAmount;
-    self.detectorView.pixelHalfLife = self.halfLifeValue;
+    self.imageMaximum = 0;
+    self.imagePixelHalfLife = 1;
+    self.foxsiView.pixelHalfLife = self.imagePixelHalfLife;
+    self.detectorView.imageMax = self.imageMaximum;
+    self.foxsiView.imageMax = self.imageMaximum;
+    self.detectorView.pixelHalfLife = self.imagePixelHalfLife;
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -130,15 +130,15 @@
 }
 
 - (IBAction)SetImageMaximumAction:(NSSlider *)sender {
-    self.foxsiView.imageMax = self.sliderAmount;
-    self.detectorView.imageMax = self.sliderAmount;
+    self.foxsiView.imageMax = self.imageMaximum;
+    self.detectorView.imageMax = self.imageMaximum;
     [self.foxsiView needsDisplay];
     [self.detectorView needsDisplay];
 }
 
 - (IBAction)SetImagePixelHalfLifeAction:(NSSlider *)sender {
-    self.foxsiView.pixelHalfLife = self.halfLifeValue;
-    self.detectorView.pixelHalfLife = self.halfLifeValue;
+    self.foxsiView.pixelHalfLife = self.imagePixelHalfLife;
+    self.detectorView.pixelHalfLife = self.imagePixelHalfLife;
     [self.foxsiView needsDisplay];
     [self.detectorView needsDisplay];
 }

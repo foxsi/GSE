@@ -12,12 +12,12 @@
 
 @interface ViewController : NSViewController{
     @private
-    int sliderAmount;
-    int halfLifeValue;
+    int imageMaximum;
+    int imagePixelHalfLife;
 }
 
-@property int sliderAmount;
-@property int halfLifeValue;
+@property int imageMaximum;
+@property int imagePixelHalfLife;
 
 @property (weak) IBOutlet NSTextField *localTimeTextField;
 @property (weak) IBOutlet NSTextField *versionTextField;
