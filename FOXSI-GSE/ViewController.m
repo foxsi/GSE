@@ -83,7 +83,6 @@
 }
 
 - (IBAction)StartAction:(NSButton *)sender {
-    NSLog(@"blah");
     ReadDataOp *operation = [[ReadDataOp alloc] init];
     [self.operationQueue addOperation:operation];
     [self.progressIndicator startAnimation:nil];
@@ -129,6 +128,7 @@
     for (Detector *thisDetector in self.detectors) {
         [thisDetector flushImage];
     }
+    [self.foxsiView needsDisplay];
 }
 
 - (IBAction)FlushSpecAction:(NSButton *)sender {
@@ -139,10 +139,12 @@
 
 - (IBAction)SetImageMaximumAction:(NSSlider *)sender {
     self.foxsiView.imageMax = self.sliderAmount;
+    [self.foxsiView needsDisplay];
 }
 
 - (IBAction)SetImagePixelHalfLifeAction:(NSSlider *)sender {
     self.foxsiView.pixelHalfLife = self.halfLifeValue;
+    [self.foxsiView needsDisplay];
 }
 
 - (void) receiveDataReadyNotification:(NSNotification *) notification

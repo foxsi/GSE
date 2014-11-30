@@ -127,18 +127,28 @@
         // draw the data in the detector
         GLfloat grey = 0.0;
         Detector *currentDetector = [self.data objectAtIndex:detector_num];
+        NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
+        NSTimeInterval pixelTime;
+        NSTimeInterval elapsedTime;
+        UInt8 pixelValue;
+        GLfloat alpha;
         for(int i = 0; i < XSTRIPS; i++)
         {
             for(int j = 0; j < YSTRIPS; j++)
             {
-                //grey = image[i][j][detector_num]/ymax[detector_num];
-                //Detector *currentDetector = [self.data objectAtIndex:i];
-                UInt8 pixel_value;
-                [currentDetector.image getBytes:&pixel_value range:NSMakeRange(i + XSTRIPS*j, 1)];
-                if (self.imageMax == 0) {
-                    grey = pixel_value/(float)self.imageMax;
+                [currentDetector.image getBytes:&pixelValue range:NSMakeRange(i + XSTRIPS*j, 1)];
+                
+                [currentDetector.imageTime getBytes:&pixelTime range:NSMakeRange(i + XSTRIPS*j, 1)];
+                
+                if (self.pixelHalfLife != 0){
+                    elapsedTime = currentTime - pixelTime;
+                    alpha = exp(-(float)elapsedTime*0.693/self.pixelHalfLife);
+                } else {alpha = 1.0;}
+                
+                if (self.imageMax != 0) {
+                    grey = pixelValue/(float)self.imageMax;
                 } else {
-                    grey = pixel_value/(float)currentDetector.imageMaximum;
+                    grey = pixelValue/(float)currentDetector.imageMaximum;
                 }
                 
                 if (grey != 0)
@@ -148,7 +158,7 @@
                     //    elapsed_time = ((double) current_time - pixel_time)/(CLOCKS_PER_SEC);
                     //    alpha = exp(-elapsed_time*0.693/half_life);
                     //} else {alpha = 1.0;}
-                    glColor4f(grey, grey, grey, 1.0);
+                    glColor4f(grey, grey, grey, alpha);
                     glBegin(GL_QUADS);
                     glVertex2f(i - 0.5*XSTRIPS, j - 0.5*XSTRIPS); glVertex2f(i+1 - 0.5*XSTRIPS, j- 0.5*XSTRIPS);
                     glVertex2f(i + 1 - 0.5*XSTRIPS, j + 1 - 0.5*XSTRIPS); glVertex2f(i - 0.5*XSTRIPS, j + 1- 0.5*XSTRIPS);

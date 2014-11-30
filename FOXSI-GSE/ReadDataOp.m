@@ -50,7 +50,6 @@
             // is this operation cancelled?
             if (self.isCancelled || ftell(formatterFile) >= lSize){
                 fclose(formatterFile);
-                NSLog(@"Stopping");
                 [[NSNotificationCenter defaultCenter]
                  postNotificationName:@"StoppedReadingData"
                  object:nil];
