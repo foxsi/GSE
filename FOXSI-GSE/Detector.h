@@ -11,13 +11,15 @@
 @interface Detector : NSObject
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic) int xpixels;
-@property (nonatomic) int ypixels;
-@property (nonatomic) unsigned long imageMaximum;
+@property (nonatomic) NSUInteger xpixels;
+@property (nonatomic) NSUInteger ypixels;
+@property (nonatomic) NSUInteger imageMaximum;
+@property (nonatomic) NSUInteger spectrumMaximum;
 @property (strong) NSMutableData *image;
 @property (strong) NSMutableData *spectrum;
 @property (strong) NSMutableData *lightCurve;
 @property (strong) NSMutableData *imageTime;
+@property (nonatomic) NSUInteger maxChannel;
 
 -(void) addCount: (int)x :(int)y :(int)channel;
 -(void) flushImage;

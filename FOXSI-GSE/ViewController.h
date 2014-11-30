@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "FOXSIView.h"
 #import "DetectorView.h"
+#import "SpectraView.h"
 
 @interface ViewController : NSViewController{
     @private
@@ -72,6 +73,7 @@
 
 @property (weak) IBOutlet FOXSIView *foxsiView;
 @property (weak) IBOutlet DetectorView *detectorView;
+@property (weak) IBOutlet SpectraView *spectraView;
 
 @property (nonatomic, retain) NSOperationQueue *operationQueue;
 @property (nonatomic, retain) NSTimer *timer;

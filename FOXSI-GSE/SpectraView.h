@@ -11,5 +11,6 @@
 @interface SpectraView : NSOpenGLView
 
 @property (strong) NSArray *data;
+@property NSUInteger binsize;
 
 @end

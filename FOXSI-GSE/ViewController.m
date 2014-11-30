@@ -192,6 +192,7 @@
         
         [self.foxsiView needsDisplay];
         [self.detectorView needsDisplay];
+        [self.spectraView needsDisplay];
     }
 }
 

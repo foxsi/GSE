@@ -1491,7 +1491,7 @@ Gw
                                     <rect key="frame" x="1" y="1" width="648" height="126"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <openGLView fixedFrame="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZL-5b-wCv">
+                                        <openGLView fixedFrame="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZL-5b-wCv" customClass="SpectraView">
                                             <rect key="frame" x="18" y="15" width="612" height="101"/>
                                         </openGLView>
                                     </subviews>
@@ -1530,6 +1530,7 @@ Gw
                         <outlet property="localTimeTextField" destination="Fo4-I0-jmw" id="F2U-9X-p3j"/>
                         <outlet property="progressIndicator" destination="UKe-EJ-iD1" id="MVc-9Y-F1i"/>
                         <outlet property="shutterStateTextField" destination="GJY-Lk-lJG" id="QLZ-9p-aBx"/>
+                        <outlet property="spectraView" destination="dZL-5b-wCv" id="dID-PZ-RXa"/>
                         <outlet property="timeTextField" destination="zb9-0X-cHp" id="iTg-Ld-WQI"/>
                         <outlet property="versionTextField" destination="gA5-sD-d1F" id="fpr-JK-o5y"/>
                     </connections>

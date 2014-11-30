@@ -104,7 +104,7 @@
     
     // draw mouse location if screen has been clicked
     if (self.mouseLocation.x != -1) {
-        NSLog(@"mouse lcoation is %i, %i", (int)self.mouseLocation.x, (int)self.mouseLocation.y);
+        //NSLog(@"mouse lcoation is %i, %i", (int)self.mouseLocation.x, (int)self.mouseLocation.y);
     }
     
     glPopMatrix();

@@ -22,73 +22,48 @@
     
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    NSUInteger numberOfDetectors = [self.data count];
     
     for (Detector *currentDetector in self.data) {
         
-        // draw the data in the detector
-        GLfloat grey = 0.0;
-        NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
-        NSTimeInterval pixelTime;
-        NSTimeInterval elapsedTime;
-        UInt8 pixelValue;
-        for(int i = 0; i < XSTRIPS; i++)
+        // draw a line separating the histograms
+        glColor3f(1.0, 1.0, 1.0);
+        glBegin(GL_LINES);
+        glVertex2f(1024 * numberOfDetectors/self.binsize, 0);
+        glVertex2f(1024 * numberOfDetectors/self.binsize, 100);
+        glEnd();
+        
+        glColor3f(0.0, 1.0, 0.0);
+
+        for(int i = 0; i < 1024/self.binsize; i++)
         {
-            for(int j = 0; j < YSTRIPS; j++)
-            {
-                [currentDetector.image getBytes:&pixelValue range:NSMakeRange(i + XSTRIPS*j, 1)];
-                
-                [currentDetector.imageTime getBytes:&pixelTime range:NSMakeRange(i + XSTRIPS*j, 1)];
-                
-                if (self.imageMax != 0) {
-                    grey = pixelValue/(float)self.imageMax;
-                } else {
-                    grey = pixelValue/(float)currentDetector.imageMaximum;
-                }
-                
-                if (grey != 0)
-                {
-                    if (self.pixelHalfLife != 0){
-                        elapsedTime = currentTime - pixelTime;
-                        alpha = exp(-(float)elapsedTime*0.693/self.pixelHalfLife);
-                    } else {alpha = 1.0;}
-                    
-                    glColor4f(grey, grey, grey, alpha);
-                    glBegin(GL_QUADS);
-                    glVertex2f(i+XBORDER, j+YBORDER); glVertex2f(i+1+XBORDER, j+YBORDER);
-                    glVertex2f(i+1+XBORDER, j+1+YBORDER); glVertex2f(i+XBORDER, j+1+YBORDER);
-                    glEnd();
-                }
-            }
+            NSUInteger currentChannelCount;
+            [currentDetector.spectrum getBytes:&currentChannelCount range:NSMakeRange(i * sizeof(NSUInteger), sizeof(NSUInteger))];
+            
+            // draw histogram horizontal lines
+            glBegin(GL_LINES);
+            glVertex2f(i + currentDetector.maxChannel/self.binsize*numberOfDetectors + numberOfDetectors, currentChannelCount);
+            glVertex2f(i + 1 + currentDetector.maxChannel / self.binsize * numberOfDetectors + numberOfDetectors, currentChannelCount);
+            glEnd();
+            
+            // draw error bars
+            glBegin(GL_LINES);
+            float plusErrorValue = currentChannelCount + sqrt(currentChannelCount);
+            float minusErrorValue = currentChannelCount - sqrt(currentChannelCount);
+            glVertex2f(i + currentDetector.maxChannel/self.binsize*numberOfDetectors + numberOfDetectors, plusErrorValue);
+            glVertex2f(i + 1 + currentDetector.maxChannel / self.binsize * numberOfDetectors + numberOfDetectors, minusErrorValue   );
+            glEnd();
         }
         
-        //draw a border around the detector
-        glColor3f(1, 1, 1);
-        glBegin(GL_LINE_LOOP);
-        glVertex2f(XBORDER, YBORDER); glVertex2f(XBORDER+XSTRIPS, YBORDER);
-        glVertex2f(XBORDER+XSTRIPS, YBORDER+YSTRIPS); glVertex2f(XBORDER, YBORDER+YSTRIPS);
-        glEnd();
-        
-        //draw a border around the detector
-        glColor3f(1, 1, 1);
-        glBegin(GL_LINES);
-        glVertex2f(XBORDER, YBORDER); glVertex2f(XBORDER+XSTRIPS, YBORDER);
-        glVertex2f(XBORDER+XSTRIPS, YBORDER+YSTRIPS); glVertex2f(XBORDER, YBORDER+YSTRIPS);
-        glEnd();
-        
-        // draw vertical line at center of detector
-        glColor3f(0, 0.5, 0);
-        glBegin(GL_LINES);
-        glVertex2f(XSTRIPS/2.0 + XBORDER + 0.5, YBORDER);
-        glVertex2f(XSTRIPS/2.0 + XBORDER + 0.5, YSTRIPS + YBORDER);	glEnd();
-        glEnd();
-        
-        // draw vertical line at center of detector
-        glColor3f(0, 0.5, 0);
-        glBegin(GL_LINES);
-        glVertex2f(XBORDER, YSTRIPS/2.0 + YBORDER + 0.5);
-        glVertex2f(XSTRIPS + XBORDER, YSTRIPS/2.0 + YBORDER + 0.5);
-        glEnd();
-        
+        // draw the connecting line
+        //glBegin(GL_LINE_LOOP);
+        //glVertex2f(0.5 + xmax/binsize*detector_num + detector_num, 0);
+        //for(int i = 0; i < MAX_CHANNEL/binsize; i++) {
+        //    long y = gui->mainHistogramWindow->get_detectorDisplayHistogram(i, detector_num);
+        //    glVertex2f(i + 0.5 + xmax/binsize*detector_num + detector_num, y); }
+        //glVertex2f(MAX_CHANNEL/binsize + 0.5 + xmax/binsize*detector_num + detector_num, 0);
+        //glEnd();
     }
     
     glPopMatrix();
@@ -127,11 +102,13 @@
     
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0,XSTRIPS+2*XBORDER,0,YSTRIPS+2*YBORDER,0, -1);
+    
+    self.binsize = 1;
+
+    glOrtho(0, 1024 * [self.data count] / self.binsize, 0, 100, 0, -1);
     
     glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    
+    glLoadIdentity();    
 }
 
 + (NSOpenGLPixelFormat *)defaultPixelFormat
