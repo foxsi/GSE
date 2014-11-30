@@ -63,6 +63,8 @@
 - (IBAction)FlushImageAction:(NSButton *)sender;
 - (IBAction)FlushSpecAction:(NSButton *)sender;
 - (IBAction)FlushLightcurveAction:(NSButton *)sender;
+- (IBAction)SetImageMaximumAction:(NSSlider *)sender;
+- (IBAction)SetImagePixelHalfLifeAction:(NSSlider *)sender;
 
 @property (weak) IBOutlet FOXSIView *foxsiView;
 

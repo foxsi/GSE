@@ -11,5 +11,7 @@
 @interface FOXSIView : NSOpenGLView
 
 @property (strong) NSArray *data;
+@property int imageMax;
+@property int pixelHalfLife;
 
 @end

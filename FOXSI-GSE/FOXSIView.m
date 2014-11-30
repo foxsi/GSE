@@ -29,6 +29,8 @@
 @implementation FOXSIView
 
 @synthesize detector_angles;
+@synthesize imageMax;
+@synthesize pixelFormat;
 
 -(id) initWithFrame:(NSRect)frameRect
 {
@@ -133,7 +135,12 @@
                 //Detector *currentDetector = [self.data objectAtIndex:i];
                 UInt8 pixel_value;
                 [currentDetector.image getBytes:&pixel_value range:NSMakeRange(i + XSTRIPS*j, 1)];
-                grey = pixel_value/(float)currentDetector.imageMaximum;
+                if (self.imageMax == 0) {
+                    grey = pixel_value/(float)self.imageMax;
+                } else {
+                    grey = pixel_value/(float)currentDetector.imageMaximum;
+                }
+                
                 if (grey != 0)
                 {
                     //pixel_time = imagetime[i][j][detector_num];
@@ -244,6 +251,8 @@
                             [NSNumber numberWithFloat:-87.5+180],
                             [NSNumber numberWithFloat:90.0],
                             [NSNumber numberWithFloat:-60], nil];
+    self.imageMax = 0;
+    self.pixelHalfLife = 1;
 }
 
 -(void) drawText: (NSPoint) origin :(NSString *)text

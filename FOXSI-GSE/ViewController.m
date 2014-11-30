@@ -72,6 +72,8 @@
     self.detectors = [NSArray arrayWithObjects:detector0, detector1, detector2,
                       detector3, detector4, detector5, detector6, nil];
     self.foxsiView.data = self.detectors;
+    self.sliderAmount = 0;
+    self.halfLifeValue = 1;
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -133,6 +135,14 @@
 }
 
 - (IBAction)FlushLightcurveAction:(NSButton *)sender {
+}
+
+- (IBAction)SetImageMaximumAction:(NSSlider *)sender {
+    self.foxsiView.imageMax = self.sliderAmount;
+}
+
+- (IBAction)SetImagePixelHalfLifeAction:(NSSlider *)sender {
+    self.foxsiView.pixelHalfLife = self.halfLifeValue;
 }
 
 - (void) receiveDataReadyNotification:(NSNotification *) notification
