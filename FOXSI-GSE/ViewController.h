@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "FOXSIView.h"
+#import "DetectorView.h"
 
 @interface ViewController : NSViewController{
     @private
@@ -67,6 +68,7 @@
 - (IBAction)SetImagePixelHalfLifeAction:(NSSlider *)sender;
 
 @property (weak) IBOutlet FOXSIView *foxsiView;
+@property (weak) IBOutlet DetectorView *detectorView;
 
 @property (nonatomic, retain) NSOperationQueue *operationQueue;
 @property (nonatomic, retain) NSTimer *timer;

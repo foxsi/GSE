@@ -1489,6 +1489,7 @@ Gw
                         <outlet property="VoltsTextField_threethree" destination="dRt-gR-etS" id="CBE-9J-X0g"/>
                         <outlet property="commandNumberTextField" destination="JYS-6m-Brh" id="6Tx-J6-1ik"/>
                         <outlet property="commandValueTextField" destination="ncV-Kg-lhS" id="Yje-bZ-77d"/>
+                        <outlet property="detectorView" destination="FE5-3L-irR" id="PWg-I7-w2a"/>
                         <outlet property="foxsiView" destination="uvA-7q-J7s" id="miH-1F-syL"/>
                         <outlet property="frameNumberTextField" destination="g1j-e7-7a0" id="YxE-ZZ-JPo"/>
                         <outlet property="highVoltageTextField" destination="81A-gI-dp2" id="Vmb-bj-SE8"/>

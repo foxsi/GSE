@@ -10,4 +10,9 @@
 
 @interface DetectorView : NSOpenGLView
 
+@property (strong) NSArray *data;
+@property int imageMax;
+@property int pixelHalfLife;
+@property int detectorToDisplay;
+
 @end

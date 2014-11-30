@@ -72,8 +72,13 @@
     self.detectors = [NSArray arrayWithObjects:detector0, detector1, detector2,
                       detector3, detector4, detector5, detector6, nil];
     self.foxsiView.data = self.detectors;
+    self.detectorView.data = self.detectors;
     self.sliderAmount = 0;
     self.halfLifeValue = 1;
+    self.foxsiView.pixelHalfLife = self.halfLifeValue;
+    self.detectorView.imageMax = self.sliderAmount;
+    self.foxsiView.imageMax = self.sliderAmount;
+    self.detectorView.pixelHalfLife = self.halfLifeValue;
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -139,12 +144,16 @@
 
 - (IBAction)SetImageMaximumAction:(NSSlider *)sender {
     self.foxsiView.imageMax = self.sliderAmount;
+    self.detectorView.imageMax = self.sliderAmount;
     [self.foxsiView needsDisplay];
+    [self.detectorView needsDisplay];
 }
 
 - (IBAction)SetImagePixelHalfLifeAction:(NSSlider *)sender {
     self.foxsiView.pixelHalfLife = self.halfLifeValue;
+    self.detectorView.pixelHalfLife = self.halfLifeValue;
     [self.foxsiView needsDisplay];
+    [self.detectorView needsDisplay];
 }
 
 - (void) receiveDataReadyNotification:(NSNotification *) notification
@@ -172,7 +181,8 @@
             [[self.detectors objectAtIndex:detector_number ] addCount:x :y :channel];
         }
         
-        [self.foxsiView setNeedsDisplay:YES];
+        [self.foxsiView needsDisplay];
+        [self.detectorView needsDisplay];
     }
 }
 

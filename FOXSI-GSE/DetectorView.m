@@ -7,6 +7,7 @@
 //
 
 #import "DetectorView.h"
+#import "Detector.h"
 #include <OpenGL/gl.h>
 
 #define	XBORDER 5
@@ -20,6 +21,10 @@
 
 @implementation DetectorView
 
+@synthesize imageMax;
+@synthesize pixelFormat;
+@synthesize detectorToDisplay;
+
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
     
@@ -28,17 +33,41 @@
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    for(int j = 0; j < XSTRIPS; j++)
+    // draw the data in the detector
+    GLfloat grey = 0.0;
+    Detector *currentDetector = [self.data objectAtIndex:self.detectorToDisplay];
+    NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
+    NSTimeInterval pixelTime;
+    NSTimeInterval elapsedTime;
+    UInt8 pixelValue;
+    GLfloat alpha;
+    for(int i = 0; i < XSTRIPS; i++)
     {
-        for(int i = 0; i < YSTRIPS; i++)
+        for(int j = 0; j < YSTRIPS; j++)
         {
-            float grey = arc4random_uniform(25);
-            float alpha = 1;
-            glColor4f(grey, grey, grey, alpha);
-            glBegin(GL_QUADS);
-            glVertex2f(i+XBORDER, j+YBORDER); glVertex2f(i+1+XBORDER, j+YBORDER);
-            glVertex2f(i+1+XBORDER, j+1+YBORDER); glVertex2f(i+XBORDER, j+1+YBORDER);
-            glEnd();
+            [currentDetector.image getBytes:&pixelValue range:NSMakeRange(i + XSTRIPS*j, 1)];
+            
+            [currentDetector.imageTime getBytes:&pixelTime range:NSMakeRange(i + XSTRIPS*j, 1)];
+            
+            if (self.imageMax != 0) {
+                grey = pixelValue/(float)self.imageMax;
+            } else {
+                grey = pixelValue/(float)currentDetector.imageMaximum;
+            }
+            
+            if (grey != 0)
+            {
+                if (self.pixelHalfLife != 0){
+                    elapsedTime = currentTime - pixelTime;
+                    alpha = exp(-(float)elapsedTime*0.693/self.pixelHalfLife);
+                } else {alpha = 1.0;}
+                
+                glColor4f(grey, grey, grey, alpha);
+                glBegin(GL_QUADS);
+                glVertex2f(i+XBORDER, j+YBORDER); glVertex2f(i+1+XBORDER, j+YBORDER);
+                glVertex2f(i+1+XBORDER, j+1+YBORDER); glVertex2f(i+XBORDER, j+1+YBORDER);
+                glEnd();
+            }
         }
     }
     
@@ -110,6 +139,8 @@
     
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+    
+    self.detectorToDisplay = 0;
 }
 
 + (NSOpenGLPixelFormat *)defaultPixelFormat

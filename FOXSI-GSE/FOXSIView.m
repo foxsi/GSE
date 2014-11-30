@@ -123,7 +123,6 @@
         // glScaled(1, 1, 1);
         glScaled(-1, -1, 1);
         
-        // draw the data
         // draw the data in the detector
         GLfloat grey = 0.0;
         Detector *currentDetector = [self.data objectAtIndex:detector_num];
@@ -140,11 +139,6 @@
                 
                 [currentDetector.imageTime getBytes:&pixelTime range:NSMakeRange(i + XSTRIPS*j, 1)];
                 
-                if (self.pixelHalfLife != 0){
-                    elapsedTime = currentTime - pixelTime;
-                    alpha = exp(-(float)elapsedTime*0.693/self.pixelHalfLife);
-                } else {alpha = 1.0;}
-                
                 if (self.imageMax != 0) {
                     grey = pixelValue/(float)self.imageMax;
                 } else {
@@ -153,11 +147,11 @@
                 
                 if (grey != 0)
                 {
-                    //pixel_time = imagetime[i][j][detector_num];
-                    //if (half_life != 0){
-                    //    elapsed_time = ((double) current_time - pixel_time)/(CLOCKS_PER_SEC);
-                    //    alpha = exp(-elapsed_time*0.693/half_life);
-                    //} else {alpha = 1.0;}
+                    if (self.pixelHalfLife != 0){
+                        elapsedTime = currentTime - pixelTime;
+                        alpha = exp(-(float)elapsedTime*0.693/self.pixelHalfLife);
+                    } else {alpha = 1.0;}
+                    
                     glColor4f(grey, grey, grey, alpha);
                     glBegin(GL_QUADS);
                     glVertex2f(i - 0.5*XSTRIPS, j - 0.5*XSTRIPS); glVertex2f(i+1 - 0.5*XSTRIPS, j- 0.5*XSTRIPS);
