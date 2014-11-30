@@ -57,6 +57,7 @@
 // FOXSI Image
 @property (weak) IBOutlet NSTextField *PixelIndexTextField;
 @property (weak) IBOutlet NSTextField *ArcminIndexTextField;
+@property (weak) IBOutlet NSTextField *PixelValueTextField;
 
 
 // Controls Box

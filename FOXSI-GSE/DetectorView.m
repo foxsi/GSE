@@ -10,7 +10,7 @@
 #import "Detector.h"
 #include <OpenGL/gl.h>
 
-#define	XBORDER 0
+#define XBORDER 0
 #define YBORDER 0
 #define XSTRIPS 128
 #define YSTRIPS 128
@@ -104,7 +104,7 @@
     
     // draw mouse location if screen has been clicked
     if (self.mouseLocation.x != -1) {
-        NSLog(@"mouse lcoation is %f, %f", self.mouseLocation.x, self.mouseLocation.y);
+        NSLog(@"mouse lcoation is %i, %i", (int)self.mouseLocation.x, (int)self.mouseLocation.y);
     }
     
     glPopMatrix();
@@ -155,7 +155,7 @@
 - (void)mouseDown:(NSEvent *)theEvent {
     NSPoint curPoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
     //mouseLoc = [NSEvent mouseLocation]; //get current mouse position
-    self.mouseLocation = NSMakePoint(curPoint.x / [self bounds].size.width * XSTRIPS, YSTRIPS - curPoint.y / [self bounds].size.height * YSTRIPS);
+    self.mouseLocation = NSMakePoint((int)(curPoint.x / [self bounds].size.width * XSTRIPS), (int)(YSTRIPS - curPoint.y / [self bounds].size.height * YSTRIPS));
     [self setNeedsDisplay:YES];
 }
 

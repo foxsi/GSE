@@ -18,6 +18,8 @@
 		866EC4531A1D853C009FDCF3 /* FOXSI_GSETests.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC4521A1D853C009FDCF3 /* FOXSI_GSETests.m */; };
 		866EC45E1A1D927D009FDCF3 /* ReadDataOp.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC45D1A1D927D009FDCF3 /* ReadDataOp.m */; };
 		866EC4611A1EFBCC009FDCF3 /* DataFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EC4601A1EFBCC009FDCF3 /* DataFrame.m */; };
+		86D5980E1A2B4F9B00734126 /* SpectrumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D5980D1A2B4F9B00734126 /* SpectrumView.m */; };
+		86D598111A2B4FC800734126 /* SpectraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D598101A2B4FC800734126 /* SpectraView.m */; };
 		86EB954A1A21A3A6007EEBFC /* FOXSIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB95491A21A3A6007EEBFC /* FOXSIView.m */; };
 		86EB954D1A22D578007EEBFC /* NumberInRangeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB954C1A22D578007EEBFC /* NumberInRangeFormatter.m */; };
 		86FEAB0C1A23701200953CC1 /* DetectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FEAB0B1A23701200953CC1 /* DetectorView.m */; };
@@ -56,6 +58,10 @@
 		866EC45D1A1D927D009FDCF3 /* ReadDataOp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadDataOp.m; sourceTree = "<group>"; };
 		866EC45F1A1EFBCC009FDCF3 /* DataFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataFrame.h; sourceTree = "<group>"; };
 		866EC4601A1EFBCC009FDCF3 /* DataFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataFrame.m; sourceTree = "<group>"; };
+		86D5980C1A2B4F9B00734126 /* SpectrumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpectrumView.h; sourceTree = "<group>"; };
+		86D5980D1A2B4F9B00734126 /* SpectrumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpectrumView.m; sourceTree = "<group>"; };
+		86D5980F1A2B4FC800734126 /* SpectraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpectraView.h; sourceTree = "<group>"; };
+		86D598101A2B4FC800734126 /* SpectraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpectraView.m; sourceTree = "<group>"; };
 		86EB95481A21A3A6007EEBFC /* FOXSIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOXSIView.h; sourceTree = "<group>"; };
 		86EB95491A21A3A6007EEBFC /* FOXSIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOXSIView.m; sourceTree = "<group>"; };
 		86EB954B1A22D578007EEBFC /* NumberInRangeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberInRangeFormatter.h; sourceTree = "<group>"; };
@@ -125,6 +131,10 @@
 				86EB95491A21A3A6007EEBFC /* FOXSIView.m */,
 				86FEAB0A1A23701200953CC1 /* DetectorView.h */,
 				86FEAB0B1A23701200953CC1 /* DetectorView.m */,
+				86D5980C1A2B4F9B00734126 /* SpectrumView.h */,
+				86D5980D1A2B4F9B00734126 /* SpectrumView.m */,
+				86D5980F1A2B4FC800734126 /* SpectraView.h */,
+				86D598101A2B4FC800734126 /* SpectraView.m */,
 				866EC4431A1D853C009FDCF3 /* Images.xcassets */,
 				866EC4451A1D853C009FDCF3 /* Main.storyboard */,
 				866EC45C1A1D927D009FDCF3 /* ReadDataOp.h */,
@@ -283,6 +293,8 @@
 				866EC4611A1EFBCC009FDCF3 /* DataFrame.m in Sources */,
 				865F32D21A2372FF00860E1C /* Detector.m in Sources */,
 				865F32DD1A23C6AD00860E1C /* DataHousekeeping.m in Sources */,
+				86D598111A2B4FC800734126 /* SpectraView.m in Sources */,
+				86D5980E1A2B4F9B00734126 /* SpectrumView.m in Sources */,
 				86FEAB0C1A23701200953CC1 /* DetectorView.m in Sources */,
 				866EC45E1A1D927D009FDCF3 /* ReadDataOp.m in Sources */,
 				86EB954A1A21A3A6007EEBFC /* FOXSIView.m in Sources */,

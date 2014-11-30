@@ -682,11 +682,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="1092" height="904"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1092" height="746"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Temperatures" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="2iZ-v4-gNL">
-                                <rect key="frame" x="653" y="729" width="296" height="150"/>
+                                <rect key="frame" x="653" y="571" width="296" height="150"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="294" height="134"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -901,7 +901,7 @@
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Control" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="F9v-C4-0or">
-                                <rect key="frame" x="17" y="729" width="328" height="150"/>
+                                <rect key="frame" x="17" y="571" width="328" height="150"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="326" height="134"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1027,7 +1027,7 @@ Gw
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Voltages" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="OAv-Ha-Hv4">
-                                <rect key="frame" x="965" y="729" width="110" height="150"/>
+                                <rect key="frame" x="953" y="571" width="110" height="150"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="108" height="134"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1106,7 +1106,7 @@ Gw
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Telemetry" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="sAJ-3b-BLI">
-                                <rect key="frame" x="347" y="729" width="304" height="150"/>
+                                <rect key="frame" x="347" y="571" width="304" height="150"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="302" height="134"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1219,7 +1219,7 @@ Gw
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fo4-I0-jmw">
-                                <rect key="frame" x="954" y="887" width="120" height="17"/>
+                                <rect key="frame" x="954" y="729" width="120" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Label" id="awU-dw-akA">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1227,7 +1227,7 @@ Gw
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IW3-Px-Qsf">
-                                <rect key="frame" x="828" y="887" width="120" height="17"/>
+                                <rect key="frame" x="828" y="729" width="120" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Current Time" id="Aog-hV-eBv">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1235,9 +1235,9 @@ Gw
                                 </textFieldCell>
                             </textField>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="FOXSI" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="cki-ET-WmE">
-                                <rect key="frame" x="12" y="316" width="554" height="409"/>
+                                <rect key="frame" x="12" y="158" width="653" height="409"/>
                                 <view key="contentView">
-                                    <rect key="frame" x="1" y="1" width="552" height="393"/>
+                                    <rect key="frame" x="1" y="1" width="651" height="393"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <slider horizontalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81j-Bf-JSW">
@@ -1298,15 +1298,23 @@ Gw
                                             <rect key="frame" x="18" y="14" width="412" height="369"/>
                                         </openGLView>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h9A-fH-6eK">
-                                            <rect key="frame" x="450" y="174" width="84" height="22"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="NFq-aM-9Ob">
+                                            <rect key="frame" x="549" y="340" width="84" height="22"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="64, 64" drawsBackground="YES" id="NFq-aM-9Ob">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqN-h8-ohR">
+                                            <rect key="frame" x="549" y="238" width="84" height="22"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="0" drawsBackground="YES" id="UDC-fA-ou2">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AtL-7Y-oTj">
-                                            <rect key="frame" x="471" y="200" width="34" height="17"/>
+                                            <rect key="frame" x="547" y="366" width="88" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Pixel" id="rTK-bc-vqb">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1314,28 +1322,39 @@ Gw
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tii-im-ZAF">
-                                            <rect key="frame" x="450" y="126" width="84" height="22"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="TEo-2E-YLy">
+                                            <rect key="frame" x="549" y="292" width="84" height="22"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="0, 0" drawsBackground="YES" id="TEo-2E-YLy">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lWQ-7I-urx">
-                                            <rect key="frame" x="466" y="152" width="51" height="17"/>
+                                            <rect key="frame" x="544" y="318" width="91" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Arcmin" id="io9-Lp-MG8">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4h7-Sv-Yii">
+                                            <rect key="frame" x="547" y="265" width="88" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Value" id="O8G-CW-J4E">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <openGLView fixedFrame="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pxu-GD-W0J" customClass="DetectorView">
+                                            <rect key="frame" x="443" y="14" width="190" height="190"/>
+                                        </openGLView>
                                     </subviews>
                                 </view>
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Spectrum" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="2Bz-jL-lLl">
-                                <rect key="frame" x="568" y="451" width="408" height="274"/>
+                                <rect key="frame" x="667" y="293" width="408" height="274"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="406" height="258"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1420,8 +1439,24 @@ Gw
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gA5-sD-d1F">
+                                <rect key="frame" x="71" y="729" width="239" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="vcR-L3-mjw">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPe-sa-a2Z">
+                                <rect key="frame" x="18" y="729" width="49" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="version" id="D6Q-x1-HG7">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Lightcurve" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="ai9-gd-3wS">
-                                <rect key="frame" x="568" y="316" width="408" height="131"/>
+                                <rect key="frame" x="667" y="158" width="408" height="131"/>
                                 <view key="contentView">
                                     <rect key="frame" x="1" y="1" width="406" height="115"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1451,50 +1486,16 @@ Gw
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box autoresizesSubviews="NO" fixedFrame="YES" title="Detector Spectra" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="VAD-Mf-skj">
-                                <rect key="frame" x="326" y="43" width="650" height="269"/>
+                                <rect key="frame" x="12" y="12" width="650" height="142"/>
                                 <view key="contentView">
-                                    <rect key="frame" x="1" y="1" width="648" height="253"/>
+                                    <rect key="frame" x="1" y="1" width="648" height="126"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <openGLView fixedFrame="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZL-5b-wCv">
-                                            <rect key="frame" x="18" y="14" width="612" height="229"/>
+                                            <rect key="frame" x="18" y="15" width="612" height="101"/>
                                         </openGLView>
                                     </subviews>
                                 </view>
-                                <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gA5-sD-d1F">
-                                <rect key="frame" x="71" y="887" width="239" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="vcR-L3-mjw">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPe-sa-a2Z">
-                                <rect key="frame" x="18" y="887" width="49" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="version" id="D6Q-x1-HG7">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <box autoresizesSubviews="NO" ambiguous="YES" misplaced="YES" title="Detector Image" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="atc-4N-6NE">
-                                <rect key="frame" x="12" y="43" width="250" height="250"/>
-                                <view key="contentView">
-                                    <rect key="frame" x="1" y="1" width="248" height="234"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <openGLView ambiguous="YES" misplaced="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FE5-3L-irR" customClass="DetectorView">
-                                            <rect key="frame" x="18" y="124" width="100" height="100"/>
-                                        </openGLView>
-                                    </subviews>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="FE5-3L-irR" secondAttribute="centerY" id="E9H-Gu-cAP"/>
-                                    <constraint firstAttribute="centerX" secondItem="FE5-3L-irR" secondAttribute="centerX" id="z81-pu-YCt"/>
-                                </constraints>
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
@@ -1504,6 +1505,7 @@ Gw
                         <outlet property="ArcminIndexTextField" destination="Tii-im-ZAF" id="hKC-DA-Rav"/>
                         <outlet property="FlushTypeSegmentedControl" destination="fOC-TN-V3q" id="I1M-J6-epj"/>
                         <outlet property="PixelIndexTextField" destination="h9A-fH-6eK" id="6ET-lr-UHc"/>
+                        <outlet property="PixelValueTextField" destination="dqN-h8-ohR" id="x69-FP-MPQ"/>
                         <outlet property="TemperatureTextField_aact" destination="zll-oL-YC4" id="xfc-8x-RSb"/>
                         <outlet property="TemperatureTextField_abrd" destination="7Xo-7M-JSf" id="qX7-sc-3dQ"/>
                         <outlet property="TemperatureTextField_det0" destination="cTD-qa-WzP" id="5WI-by-jCX"/>
@@ -1522,7 +1524,6 @@ Gw
                         <outlet property="VoltsTextField_threethree" destination="dRt-gR-etS" id="CBE-9J-X0g"/>
                         <outlet property="commandNumberTextField" destination="JYS-6m-Brh" id="6Tx-J6-1ik"/>
                         <outlet property="commandValueTextField" destination="ncV-Kg-lhS" id="Yje-bZ-77d"/>
-                        <outlet property="detectorView" destination="FE5-3L-irR" id="PWg-I7-w2a"/>
                         <outlet property="foxsiView" destination="uvA-7q-J7s" id="miH-1F-syL"/>
                         <outlet property="frameNumberTextField" destination="g1j-e7-7a0" id="YxE-ZZ-JPo"/>
                         <outlet property="highVoltageTextField" destination="81A-gI-dp2" id="Vmb-bj-SE8"/>
@@ -1536,7 +1537,7 @@ Gw
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="dP9-fK-6sF"/>
             </objects>
-            <point key="canvasLocation" x="381" y="972"/>
+            <point key="canvasLocation" x="381" y="893"/>
         </scene>
     </scenes>
 </document>

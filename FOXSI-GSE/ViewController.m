@@ -59,15 +59,15 @@
     Detector *detector1 = [[Detector alloc] init];
     detector0.name = @"D1";
     Detector *detector2 = [[Detector alloc] init];
-    detector0.name = @"D2";
+    detector0.name = @"+D2 (CdTe)";
     Detector *detector3 = [[Detector alloc] init];
-    detector0.name = @"D3";
+    detector0.name = @"D3 (CdTe)";
     Detector *detector4 = [[Detector alloc] init];
     detector0.name = @"D4";
     Detector *detector5 = [[Detector alloc] init];
     detector0.name = @"D5";
     Detector *detector6 = [[Detector alloc] init];
-    detector0.name = @"D6";
+    detector0.name = @"+D6";
     
     self.detectors = [NSArray arrayWithObjects:detector0, detector1, detector2,
                       detector3, detector4, detector5, detector6, nil];
