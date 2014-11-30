@@ -10,13 +10,15 @@
 #import "Detector.h"
 #include <OpenGL/gl.h>
 
-#define	XBORDER 5
-#define YBORDER 5
+#define	XBORDER 0
+#define YBORDER 0
 #define XSTRIPS 128
 #define YSTRIPS 128
 #define NUM_CIRCLE_SEGMENTS   30    // the number of line segments to use for circles
 
 @interface DetectorView()
+- (void) mouseDown: (NSEvent *)theEvent;
+@property (nonatomic) NSPoint mouseLocation;
 @end
 
 @implementation DetectorView
@@ -24,6 +26,7 @@
 @synthesize imageMax;
 @synthesize pixelFormat;
 @synthesize detectorToDisplay;
+@synthesize mouseLocation;
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
@@ -99,6 +102,11 @@
     glVertex2f(XSTRIPS + XBORDER, YSTRIPS/2.0 + YBORDER + 0.5);
     glEnd();
     
+    // draw mouse location if screen has been clicked
+    if (self.mouseLocation.x != -1) {
+        NSLog(@"mouse lcoation is %f, %f", self.mouseLocation.x, self.mouseLocation.y);
+    }
+    
     glPopMatrix();
     glFinish();
     glFlush();
@@ -141,6 +149,14 @@
     glLoadIdentity();
     
     self.detectorToDisplay = 0;
+    self.mouseLocation = NSMakePoint(-1, -1);
+}
+
+- (void)mouseDown:(NSEvent *)theEvent {
+    NSPoint curPoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+    //mouseLoc = [NSEvent mouseLocation]; //get current mouse position
+    self.mouseLocation = NSMakePoint(curPoint.x / [self bounds].size.width * XSTRIPS, YSTRIPS - curPoint.y / [self bounds].size.height * YSTRIPS);
+    [self setNeedsDisplay:YES];
 }
 
 + (NSOpenGLPixelFormat *)defaultPixelFormat

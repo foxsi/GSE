@@ -129,19 +129,6 @@
     }
 }
 
-- (IBAction)FlushImageAction:(NSButton *)sender {
-    for (Detector *thisDetector in self.detectors) {
-        [thisDetector flushImage];
-    }
-    [self.foxsiView needsDisplay];
-}
-
-- (IBAction)FlushSpecAction:(NSButton *)sender {
-}
-
-- (IBAction)FlushLightcurveAction:(NSButton *)sender {
-}
-
 - (IBAction)SetImageMaximumAction:(NSSlider *)sender {
     self.foxsiView.imageMax = self.sliderAmount;
     self.detectorView.imageMax = self.sliderAmount;
@@ -154,6 +141,28 @@
     self.detectorView.pixelHalfLife = self.halfLifeValue;
     [self.foxsiView needsDisplay];
     [self.detectorView needsDisplay];
+}
+
+- (IBAction)FlushAction:(NSButton *)sender {
+    for (Detector *thisDetector in self.detectors) {
+        NSInteger type = self.FlushTypeSegmentedControl.selectedSegment;
+        switch (type) {
+            case 0:
+                [thisDetector flushImage];
+                break;
+            case 1:
+                [thisDetector flushSpectrum];
+                break;
+            case 2:
+                [thisDetector flushLightcurve];
+                break;
+            case 3:
+                [thisDetector flushAll];
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 - (void) receiveDataReadyNotification:(NSNotification *) notification
@@ -220,4 +229,6 @@
     self.localTimeTextField.stringValue = [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateIntervalFormatterFullStyle];
 }
 
+- (IBAction)updateDetectorToDisplayAction:(NSSegmentedControl *)sender {
+}
 @end

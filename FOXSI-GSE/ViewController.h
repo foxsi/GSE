@@ -30,6 +30,10 @@
 @property (weak) IBOutlet NSTextField *commandNumberTextField;
 @property (weak) IBOutlet NSTextField *commandValueTextField;
 
+// Control Box
+- (IBAction)updateDetectorToDisplayAction:(NSSegmentedControl *)sender;
+@property (weak) IBOutlet NSSegmentedControl *FlushTypeSegmentedControl;
+
 // Voltages Box
 @property (weak) IBOutlet NSTextField *VoltsTextField_five;
 @property (weak) IBOutlet NSTextField *VoltsTextField_mfive;
@@ -61,11 +65,9 @@
 - (IBAction)StartAction:(NSButton *)sender;
 - (IBAction)CancelAction:(NSButton *)sender;
 - (IBAction)TestAction:(NSButton *)sender;
-- (IBAction)FlushImageAction:(NSButton *)sender;
-- (IBAction)FlushSpecAction:(NSButton *)sender;
-- (IBAction)FlushLightcurveAction:(NSButton *)sender;
 - (IBAction)SetImageMaximumAction:(NSSlider *)sender;
 - (IBAction)SetImagePixelHalfLifeAction:(NSSlider *)sender;
+- (IBAction)FlushAction:(NSButton *)sender;
 
 @property (weak) IBOutlet FOXSIView *foxsiView;
 @property (weak) IBOutlet DetectorView *detectorView;
